@@ -1,1 +1,1 @@
-// Add JS here
+console.log("Hello from main.js");
