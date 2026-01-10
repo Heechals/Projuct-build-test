@@ -64,3 +64,21 @@ function saveImage(){
   a.click();
  });
 }
+
+const meals = [
+    { name: '비빔밥', image: 'https://img.freepik.com/free-photo/fresh-bibimbap-in-a-bowl-generated-by-ai_188544-48227.jpg' },
+    { name: '불고기', image: 'https://img.freepik.com/free-photo/delicious-grilled-meat-with-vegetables-and-sauce-generated-by-ai_188544-48205.jpg' },
+    { name: '김치찌개', image: 'https://img.freepik.com/free-photo/kimchi-jjigae-in-a-pot-with-ingredients-generated-by-ai_188544-48231.jpg' },
+    { name: '된장찌개', image: 'https://img.freepik.com/free-photo/doenjang-jjigae-in-a-bowl-with-vegetables-generated-by-ai_188544-48233.jpg' },
+    { name: '짜장면', image: 'https://img.freepik.com/free-photo/jajangmyeon-in-a-bowl-with-pork-and-vegetables-generated-by-ai_188544-48229.jpg' }
+];
+
+function recommendMeal() {
+    const mealResult = document.getElementById('mealResult');
+    const randomMeal = meals[Math.floor(Math.random() * meals.length)];
+
+    mealResult.innerHTML = `
+        <p>${randomMeal.name}</p>
+        <img src="${randomMeal.image}" alt="${randomMeal.name}" style="width:100%;max-width:300px;border-radius:14px;">
+    `;
+}
