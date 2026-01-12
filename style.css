@@ -1,4 +1,13 @@
-/* Modern CSS Reset */
+/* Global Styles & Variables */
+:root {
+    --primary-color: #0A2463;
+    --secondary-color: #F8F9FA;
+    --accent-color: #D83F31;
+    --text-color: #343A40;
+    --bg-color: #E9ECEF;
+    --light-bg: #fff;
+}
+
 *,
 *::before,
 *::after {
@@ -7,146 +16,127 @@
     padding: 0;
 }
 
-:root {
-    --primary-color: #333;
-    --secondary-color: #f4f4f4;
-    --accent-color: #007bff;
-    --text-color: #333;
-    --bg-color: #fff;
-}
-
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    background-color: var(--light-bg);
     color: var(--text-color);
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
 header {
-    background: var(--primary-color);
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--light-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-h1 {
-    font-size: 2.5rem;
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
-nav ul {
+header nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    padding: 1rem 0;
+    gap: 1.5rem;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
+header nav a {
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+header nav a:hover {
     color: var(--accent-color);
 }
 
+/* Hero Section */
+.hero {
+    height: 60vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+}
+
+/* Main Content */
 main {
     padding: 2rem;
+}
+
+.content-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--bg-color);
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
     text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
 }
 
-h2 {
-
-    font-size: 2rem;
-
-    margin-bottom: 1rem;
-
-}
-
-
-
-.recommendation-gallery {
-
-    padding: 2rem 0;
-
-}
-
-
-
-.gallery-grid {
-
+/* K-Food Gallery */
+.k-food-gallery {
     display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-    gap: 1.5rem;
-
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-
-
-.gallery-item {
-
+.food-item {
     background-color: var(--secondary-color);
-
-    border-radius: 8px;
-
+    border-radius: 10px;
     overflow: hidden;
-
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    transition: transform 0.3s ease;
-
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-
-.gallery-item:hover {
-
-    transform: translateY(-5px);
-
+.food-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
 
-
-
-.gallery-item img {
-
+.food-item img {
     width: 100%;
-
-    height: 200px;
-
+    height: 250px;
     object-fit: cover;
-
 }
 
-
-
-.gallery-item p {
-
-    padding: 1rem;
-
-    font-weight: bold;
-
+.food-item h3 {
+    padding: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
-
 }
 
-.hidden {
-    display: none;
-}
-
-#recommendBtn {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-color);
+    color: #fff;
 }

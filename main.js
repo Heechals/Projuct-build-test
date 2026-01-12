@@ -1,19 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const recommendBtn = document.getElementById('recommendBtn');
-    const recommendationResult = document.getElementById('recommendationResult');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+// Future JavaScript for interactivity can be added here.
+// For example, smooth scrolling for anchor links.
 
-    recommendBtn.addEventListener('click', () => {
-        // Show the recommendation container
-        recommendationResult.classList.remove('hidden');
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
-        // Hide all gallery items first
-        galleryItems.forEach(item => {
-            item.style.display = 'none';
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
-
-        // Select a random item and display it
-        const randomIndex = Math.floor(Math.random() * galleryItems.length);
-        galleryItems[randomIndex].style.display = 'block';
     });
 });

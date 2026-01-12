@@ -1,32 +1,34 @@
-# Project Blueprint
+# Project Blueprint: "Connect, Korea"
 
 ## Overview
 
-This project is a simple, modern web application that will feature a recommendation menu. The goal is to create a visually appealing and user-friendly interface using modern web standards.
+"Connect, Korea" is a web service designed to introduce global users to the richness of Korean culture. Through interactive features and visually engaging content, the platform aims to provide an accessible and enjoyable experience of Korea's food, landmarks, and language.
 
 ## Design Principles
 
-*   **Modern Aesthetics:** Clean, minimal, and visually balanced layout.
-*   **Intuitive Navigation:** Easy-to-understand menu and interaction.
-*   **Responsive Design:** Adapts to various screen sizes.
-*   **Accessibility (A11Y):** High contrast, proper sizing, and semantic HTML.
+*   **Modern & Elegant:** A clean, sophisticated design that reinterprets traditional Korean aesthetics in a modern context.
+*   **Intuitive UX:** A user-friendly interface that is easy to navigate and interact with.
+*   **Visually Engaging:** High-quality imagery and a carefully selected color palette to create a captivating experience.
+*   **Accessible:** Designed to be usable and enjoyable for everyone.
 
-## Implemented Features
+## Features
 
-### V1 - Initial Structure (Current)
+### Phase 1: Foundation (Current)
 
-*   **HTML Structure:**
-    *   `index.html` with `<header>`, `<nav>`, and `<main>` sections.
-    *   A placeholder navigation bar for the recommendation menu.
-*   **CSS Styling:**
-    *   `style.css` with a modern CSS reset.
-    *   Basic layout, typography, and a clean color palette.
-    *   Simple hover effects on navigation links.
-*   **JavaScript:**
-    *   `main.js` is included but currently empty. It will be used for future interactivity.
+*   **Homepage Redesign:** A new layout with a hero section and a modern color palette.
+*   **K-Food Section:** An expanded section dedicated to Korean cuisine, featuring beautiful images and recipes. (Based on the previous recommendation feature).
+*   **Virtual Tours Section (Planned):** A section to showcase famous Korean landmarks.
+*   **Hangeul Section (Planned):** An interactive section for learning the Korean alphabet.
 
 ## Current Plan
 
-1.  **Modify `index.html`:** Add the basic HTML structure including a header, navigation, and main content area.
-2.  **Modify `style.css`:** Apply modern styling to the elements in `index.html`.
-3.  **Modify `main.js`:** No changes in this step.
+1.  **Redesign Homepage:**
+    *   Update `index.html` with a new layout including a hero section.
+    *   Update `style.css` with a new color palette and typography.
+2.  **Expand K-Food Section:**
+    *   Restructure the existing food recommendation feature into a dedicated "K-Food" section.
+3.  **Implement "Virtual Tours" section (Next):**
+    *   Add a new section to `index.html` for virtual tours.
+    *   Find and add images and descriptions of Korean landmarks.
+4.  **Implement "Hangeul" section (Future):**
+    *   Add an interactive Hangeul learning feature.
