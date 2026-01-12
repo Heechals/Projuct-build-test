@@ -1,73 +1,52 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>힐링 로또 추천</title>
-
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Menu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<div class="wrapper">
-
-    <!-- 상단 광고 영역 -->
-    <div class="ad-box">
-        광고 영역 (상단)<br>
-        <!-- ADSENSE CODE HERE -->
-    </div>
-
-    <div class="container" id="captureArea">
-        <div class="header">
-            <div>
-                <h1>🍀 오늘의 로또 추천</h1>
-                <div class="sub">천천히, 부담 없이</div>
+    <header>
+        <h1>My App</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recommendations</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Main Content</h2>
+        <p>Welcome to our application!</p>
+        <section class="recommendation-gallery">
+            <h2>Today's Recommendations</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://image.nanobanana.dev/food/bibimbap" alt="Bibimbap">
+                    <p>Bibimbap</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://image.nanobanana.dev/food/bulgogi" alt="Bulgogi">
+                    <p>Bulgogi</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://image.nanobanana.dev/food/kimchi-jjigae" alt="Kimchi Jjigae">
+                    <p>Kimchi Jjigae</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://image.nanobanana.dev/food/doenjang-jjigae" alt="Doenjang Jjigae">
+                    <p>Doenjang Jjigae</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://image.nanobanana.dev/food/jajangmyeon" alt="Jajangmyeon">
+                    <p>Jajangmyeon</p>
+                </div>
             </div>
-            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
-        </div>
-
-        <div class="message" id="messageBox">
-            오늘은 흐름을 믿어도 괜찮은 날입니다.
-        </div>
-
-        <button class="main-btn" onclick="generate()">5세트 번호 생성</button>
-
-        <!-- 중단 광고 영역 -->
-        <div class="ad-box" style="margin-top:18px;">
-            광고 영역 (중단)<br>
-            <!-- ADSENSE CODE HERE -->
-        </div>
-
-        <div class="actions">
-            <button onclick="saveImage()">📷 이미지 저장</button>
-            <button onclick="generate()">🔄 다시 추천</button>
-        </div>
-
-        <div class="sets" id="lottoSets"></div>
-
-        <div class="meal-recommendation">
-            <h2>오늘의 식사 추천</h2>
-            <button class="main-btn" onclick="recommendMeal()">메뉴 추천 받기</button>
-            <div id="mealResult" class="meal-result"></div>
-        </div>
-
-        <div class="footer">
-            행운은 조급함을 싫어합니다 ✨
-        </div>
-    </div>
-
-    <!-- 하단 광고 영역 -->
-    <div class="ad-box" style="margin-top:18px;">
-        광고 영역 (하단)<br>
-        <!-- ADSENSE CODE HERE -->
-    </div>
-
-</div>
-
-<script src="main.js"></script>
-
+        </section>
+    </main>
+    <script src="main.js"></script>
 </body>
 </html>
