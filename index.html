@@ -28,42 +28,12 @@
     <main>
         <section id="k-food" class="content-section">
             <h2>Taste of Korea</h2>
-            <div class="k-food-gallery">
-                <a href="bibimbap.html" class="food-item-link">
-                    <div class="food-item">
-                        <img src="https://i.pinimg.com/1200x/32/b9/5f/32b95fc5d05e88ba409c5f26a3e70066.jpg" alt="Bibimbap">
-                        <h3>Bibimbap</h3>
-                        <p>A signature Korean dish, Bibimbap is a delicious mix of rice, assorted vegetables, savory meat, and a spicy gochujang sauce, often topped with a fried egg.</p>
-                    </div>
-                </a>
-                <a href="bulgogi.html" class="food-item-link">
-                    <div class="food-item">
-                        <img src="https://i.pinimg.com/1200x/20/ae/b9/20aeb917d02402b0bee80ab56ea36256.jpg" alt="Bulgogi">
-                        <h3>Bulgogi</h3>
-                        <p>Thinly sliced, marinated beef grilled to perfection. Bulgogi is known for its sweet and savory flavor profile, making it a favorite for all ages.</p>
-                    </div>
-                </a>
-                <a href="kimchi-jjigae.html" class="food-item-link">
-                    <div class="food-item">
-                        <img src="https://i.pinimg.com/736x/4f/fd/e7/4ffde7cca42fd455be18ecd5a3b026cc.jpg" alt="Kimchi Jjigae">
-                        <h3>Kimchi Jjigae</h3>
-                        <p>A classic Korean stew made with aged kimchi, tofu, and pork or seafood. It's a comforting and flavorful dish, perfect for a cold day.</p>
-                    </div>
-                </a>
-                <a href="doenjang-jjigae.html" class="food-item-link">
-                    <div class="food-item">
-                        <img src="https://i.pinimg.com/736x/82/8c/63/828c6347fde4fc262c773e19a216db98.jpg" alt="Doenjang Jjigae">
-                        <h3>Doenjang Jjigae</h3>
-                        <p>A rich and savory stew made with fermented soybean paste (doenjang), tofu, and various vegetables. A staple in Korean cuisine.</p>
-                    </div>
-                </a>
-                <a href="jajangmyeon.html" class="food-item-link">
-                    <div class="food-item">
-                        <img src="https://i.pinimg.com/736x/6f/32/50/6f32502bce814de3b37ab96d4cd6bfc4.jpg" alt="Jajangmyeon">
-                        <h3>Jajangmyeon</h3>
-                        <p>A popular Korean-Chinese noodle dish topped with a thick sauce made of chunjang, diced pork, and vegetables.</p>
-                    </div>
-                </a>
+            <div class="more-info-link">
+                <a href="recipes.html">More Info &rarr;</a>
+            </div>
+            <div id="featured-recipes" class="k-food-gallery">
+                <!-- Featured recipes will be loaded here dynamically -->
+                <p id="loading-indicator">Loading featured recipes...</p>
             </div>
         </section>
 
@@ -99,5 +69,55 @@
     </footer>
 
     <script src="main.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+
+    <script>
+        const featuredRecipes = document.getElementById('featured-recipes');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        // Listen for recipe data from Firestore
+        db.collection("recipes").limit(5).onSnapshot((querySnapshot) => {
+            featuredRecipes.innerHTML = ''; // Clear the list
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+
+            if (querySnapshot.empty) {
+                featuredRecipes.innerHTML = '<p>No featured recipes found.</p>';
+                return;
+            }
+
+            querySnapshot.forEach((doc) => {
+                const recipe = doc.data();
+                const recipeId = doc.id;
+
+                // Create a card for each recipe
+                const recipeCard = document.createElement('a');
+                recipeCard.href = `recipe-detail.html?id=${recipeId}`; // Link to a future dynamic detail page
+                recipeCard.className = 'food-item-link';
+                
+                recipeCard.innerHTML = `
+                    <div class="food-item">
+                        <img src="${recipe.imageUrl}" alt="${recipe.name}">
+                        <h3>${recipe.name}</h3>
+                        <p>${recipe.description}</p>
+                    </div>
+                `;
+                featuredRecipes.appendChild(recipeCard);
+            });
+        }, (error) => {
+            console.error("Error fetching recipes: ", error);
+            if(loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+            featuredRecipes.innerHTML = '<p>Could not load recipes. Please check the console for errors.</p>';
+        });
+    </script>
 </body>
 </html>

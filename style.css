@@ -201,3 +201,19 @@ footer {
 .food-detail p {
     line-height: 1.8;
 }
+
+.more-info-link {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+.more-info-link a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.more-info-link a:hover {
+    color: var(--accent-color);
+}

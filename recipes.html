@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Recipes - Learn Korean Culture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html">Learn Korean Culture</a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html#k-food">K-Food</a></li>
+                <li><a href="index.html#virtual-tours">Virtual Tours</a></li>
+                <li><a href="index.html#hangeul">Hangeul</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2>All Recipes</h2>
+            <div id="recipe-list" class="k-food-gallery">
+                <!-- Recipes will be loaded here dynamically -->
+                <p id="loading-indicator">Loading recipes...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+
+    <script>
+        const recipeList = document.getElementById('recipe-list');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        // Listen for recipe data from Firestore
+        db.collection("recipes").onSnapshot((querySnapshot) => {
+            recipeList.innerHTML = ''; // Clear the list
+            loadingIndicator.style.display = 'none';
+
+            if (querySnapshot.empty) {
+                recipeList.innerHTML = '<p>No recipes found. The administrator needs to add some!</p>';
+                return;
+            }
+
+            querySnapshot.forEach((doc) => {
+                const recipe = doc.data();
+                const recipeId = doc.id;
+
+                // Create a card for each recipe
+                const recipeCard = document.createElement('a');
+                recipeCard.href = `recipe-detail.html?id=${recipeId}`; // Link to a future dynamic detail page
+                recipeCard.className = 'food-item-link';
+                
+                recipeCard.innerHTML = `
+                    <div class="food-item">
+                        <img src="${recipe.imageUrl}" alt="${recipe.name}">
+                        <h3>${recipe.name}</h3>
+                        <p>${recipe.description}</p>
+                    </div>
+                `;
+                recipeList.appendChild(recipeCard);
+            });
+        }, (error) => {
+            console.error("Error fetching recipes: ", error);
+            loadingIndicator.style.display = 'none';
+            recipeList.innerHTML = '<p>Could not load recipes. Please check the console for errors.</p>';
+        });
+    </script>
+</body>
+</html>
