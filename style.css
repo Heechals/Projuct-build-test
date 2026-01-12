@@ -154,3 +154,50 @@ footer {
 .footer-links a:hover {
     color: var(--accent-color);
 }
+
+/* Link wrapper for food items */
+.food-item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Styles for the detail pages */
+.detail-page {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.food-detail img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.food-detail h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.food-detail h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 0.5rem;
+}
+
+.food-detail ul, .food-detail ol {
+    padding-left: 25px;
+    line-height: 1.8;
+}
+
+.food-detail p {
+    line-height: 1.8;
+}
