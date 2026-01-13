@@ -1,132 +1,129 @@
-// This is a one-time script to populate the Firestore database with initial recipe data.
-// You would run this once from your browser's developer console on any page that has the Firebase SDK included,
-// like recipes.html, after you have configured your firebase-config.js.
+// This script is for one-time use to populate the Firestore database with initial recipe data.
+// To run this script, open the browser's developer console on any page of the website and paste the contents of this file.
 
-const recipesTo_add = [
+const recipesTo_ADD = [
     {
         id: 'bibimbap',
         name: 'Bibimbap',
-        imageUrl: 'https://i.pinimg.com/1200x/32/b9/5f/32b95fc5d05e88ba409c5f26a3e70066.jpg',
-        description: 'A signature Korean dish, Bibimbap is a delicious mix of rice, assorted vegetables, savory meat, and a spicy gochujang sauce, often topped with a fried egg.',
-        characteristics: 'Bibimbap is a signature Korean dish served as a bowl of warm white rice topped with namul (sautéed and seasoned vegetables) and gochujang (chili pepper paste), soy sauce, or doenjang (a fermented soybean paste). A raw or fried egg and sliced meat (usually beef) are common additions. The ingredients are stirred together thoroughly just before eating. It is a dish that is as visually appealing as it is delicious, with a beautiful harmony of colorful ingredients, making it a well-balanced and nutritious meal.',
+        imageUrl: 'https://image.nanobanana.dev/food/bibimbap',
+        description: 'A signature Korean dish, bibimbap is a colorful bowl of rice topped with fresh vegetables, a fried egg, and your choice of protein. It\'s all mixed together with a dollop of spicy gochujang sauce.',
+        characteristics: 'A vibrant and healthy mixed rice dish with a perfect balance of flavors and textures, from the fresh crunch of vegetables to the savory depth of the sauce.',
         ingredients: [
-            '2 bowls of cooked rice',
-            '1 bunch of spinach, 200g of bean sprouts',
-            '1 carrot, 1/2 zucchini',
-            '150g of beef (or other toppings)',
-            '2 eggs',
-            'Sauce: 3 tbsp Gochujang, 1 tbsp sugar, 1 tsp minced garlic, 1 tbsp sesame oil, 1 tsp vinegar, sesame seeds'
+            '1 cup cooked rice',
+            '1/2 cup assorted vegetables (carrots, spinach, bean sprouts)',
+            '100g beef or tofu',
+            '1 fried egg',
+            '1 tbsp gochujang (Korean chili paste)'
         ],
         recipe: [
-            'Blanch the vegetables (spinach, bean sprouts), season with salt and sesame oil. Sauté the julienned carrot and zucchini lightly.',
-            'Marinate and stir-fry the beef with soy sauce, sugar, and minced garlic.',
-            'Prepare fried eggs or make egg garnish (jidan).',
-            'Place the cooked rice in a bowl and arrange the prepared ingredients beautifully on top.',
-            'Add the sauce in the center and drizzle with sesame oil.',
-            'Mix all the ingredients together right before eating.'
+            '1. Sauté the vegetables and protein separately.',
+            '2. Arrange the cooked rice, vegetables, and protein in a bowl.',
+            '3. Top with a sunny-side-up fried egg.',
+            '4. Serve with gochujang on the side, ready to be mixed.'
         ]
     },
     {
         id: 'bulgogi',
         name: 'Bulgogi',
-        imageUrl: 'https://i.pinimg.com/1200x/20/ae/b9/20aeb917d02402b0bee80ab56ea36256.jpg',
-        description: 'Thinly sliced, marinated beef grilled to perfection. Bulgogi is known for its sweet and savory flavor profile, making it a favorite for all ages.',
-        characteristics: 'Bulgogi, literally "fire meat", is a classic Korean BBQ dish made of thin, marinated slices of beef or pork grilled on a barbecue or on a stove-top griddle. It is known for its tender texture and a perfect balance of sweet and savory flavors from its soy sauce-based marinade. Bulgogi is a favorite among Koreans and non-Koreans alike. There are various regional styles, such as Seoul-style (with broth) and Gwangyang-style (quickly grilled over charcoal). It\'s typically enjoyed wrapped in lettuce or perilla leaves.',
+        imageUrl: 'https://image.nanobanana.dev/food/bulgogi',
+        description: 'Thinly sliced beef marinated in a sweet and savory sauce, then grilled to perfection. Bulgogi is a beloved Korean BBQ dish known for its tender texture and irresistible flavor.',
+        characteristics: 'Tender, juicy, and slightly sweet marinated beef that melts in your mouth. The grilling process adds a delightful smoky aroma.',
         ingredients: [
-            '600g of thinly sliced beef for Bulgogi',
-            '1/2 onion, 1 green onion',
-            'Shiitake or enoki mushrooms',
-            'Marinade: 7 tbsp soy sauce, 3 tbsp sugar, 2 tbsp minced garlic, 2 tbsp sesame oil, a pinch of black pepper',
-            '(Optional) 1/2 cup of pear juice, glass noodles'
+            '200g thinly sliced beef',
+            '4 tbsp soy sauce',
+            '2 tbsp sugar',
+            '1 tbsp sesame oil',
+            '1/2 pear, grated (for tenderizing)'
         ],
         recipe: [
-            'Pat the beef dry with a kitchen towel to remove excess blood.',
-            'In a bowl, mix together soy sauce, sugar, minced garlic, sesame oil, and black pepper to create the marinade. (Adding pear juice will help tenderize the meat.)',
-            'Add the beef to the marinade, mix well, and let it sit for at least 30 minutes.',
-            'Slice the onion, green onion, and mushrooms.',
-            'In a heated pan, stir-fry the marinated beef. When the meat starts to cook, add the prepared vegetables and continue to stir-fry.',
-            'Once all ingredients are fully cooked, it\'s ready. Enjoy with warm rice.'
+            '1. Marinate the beef slices in the soy sauce mixture for at least 30 minutes.',
+            '2. Grill the marinated beef over high heat until cooked through and slightly caramelized.',
+            '3. Serve hot with a side of rice and fresh lettuce for wrapping.'
         ]
     },
     {
         id: 'kimchi-jjigae',
-        name: 'Kimchi Jjigae (Kimchi Stew)',
-        imageUrl: 'https://i.pinimg.com/736x/4f/fd/e7/4ffde7cca42fd455be18ecd5a3b026cc.jpg',
-        description: 'A classic Korean stew made with aged kimchi, tofu, and pork or seafood. It\'s a comforting and flavorful dish, perfect for a cold day.',
-        characteristics: 'Kimchi Jjigae is a classic Korean stew made with well-fermented kimchi, pork, and tofu. It\'s known for its deep, spicy, and savory flavors that come from the aged kimchi. As one of the most beloved comfort foods in Korea, its taste can vary widely depending on the additional ingredients. It\'s typically served hot with a side of rice, and its flavor deepens the longer it\'s simmered.',
+        name: 'Kimchi Jjigae',
+        imageUrl: 'https://image.nanobanana.dev/food/kimchi-jjigae',
+        description: 'A fiery and comforting stew made with aged kimchi, tofu, and pork belly. Kimchi jjigae is a staple in Korean households, perfect for a cold day.',
+        characteristics: 'A robust and spicy stew with a deep, complex flavor from the fermented kimchi. The pork adds richness, while the tofu provides a soft contrast.',
         ingredients: [
-            '1/4 head of sour kimchi (300g)',
-            '200g of pork (shoulder or belly)',
-            '1/2 block of tofu',
-            '1/2 green onion',
-            '3 cups of water or anchovy broth',
-            'Seasoning: 2 tbsp red pepper flakes (gochugaru), 1 tbsp minced garlic, 1 tbsp sugar (if kimchi is very sour), 1 tbsp soy sauce or salted shrimp'
+            '1 cup aged kimchi',
+            '100g pork belly, sliced',
+            '1/2 block of tofu, sliced',
+            '1 cup water or anchovy broth',
+            '1 tsp gochugaru (Korean chili flakes)'
         ],
         recipe: [
-            'Cut the pork and kimchi into bite-sized pieces. Slice the green onion and tofu.',
-            'In a heated pot with a little oil, stir-fry the pork. When the surface is cooked, add the kimchi and continue to stir-fry.',
-            'Pour in the water or broth and add all the seasoning ingredients (red pepper flakes, minced garlic, sugar, soy sauce).',
-            'Once the stew boils, reduce the heat to medium and simmer for at least 15 minutes to let the flavors meld.',
-            'Finally, add the tofu and green onion, and cook for another 2-3 minutes before serving.'
+            '1. Sauté the kimchi and pork belly in a pot until the pork is cooked.',
+            '2. Add water or broth and bring to a boil.',
+            '3. Add tofu and gochugaru, then simmer for 15-20 minutes.',
+            '4. Serve bubbling hot with a bowl of rice.'
         ]
     },
     {
         id: 'doenjang-jjigae',
-        name: 'Doenjang Jjigae (Soybean Paste Stew)',
-        imageUrl: 'https://i.pinimg.com/736x/82/8c/63/828c6347fde4fc262c773e19a216db98.jpg',
-        description: 'A rich and savory stew made with fermented soybean paste (doenjang), tofu, and various vegetables. A staple in Korean cuisine.',
-        characteristics: 'Doenjang Jjigae is a staple Korean stew, often referred to as a "soul food" for its comforting and rich flavors. Made with doenjang (fermented soybean paste) as its primary ingredient, it has a distinctively savory and deep taste. The flavor profile can be easily varied by adding different ingredients. It\'s commonly cooked with basic vegetables like tofu, zucchini, and onion, along with seafood or meat, and is typically served bubbling hot in an earthenware pot.',
+        name: 'Doenjang Jjigae',
+        imageUrl: 'https://image.nanobanana.dev/food/doenjang-jjigae',
+        description: 'A savory and earthy stew made with doenjang (fermented soybean paste). It\'s a classic Korean comfort food, often filled with tofu, clams, and vegetables.',
+        characteristics: 'A deeply savory and slightly pungent stew with a comforting, rustic flavor. It\'s less spicy than kimchi jjigae but equally satisfying.',
         ingredients: [
-            '3 tbsp doenjang (fermented soybean paste)',
-            '4 cups of water or anchovy broth',
-            '1/2 block of tofu, 1/3 zucchini, 1/2 onion',
-            '(Optional) 1 potato, 1 chili pepper, 1 tbsp minced garlic',
-            '(Optional) Beef brisket, clams, or other meat/seafood'
+            '2 tbsp doenjang (fermented soybean paste)',
+            '100g clams or small shrimp',
+            '1/2 block of tofu, cubed',
+            '1/2 zucchini, sliced',
+            '2 cups water'
         ],
         recipe: [
-            'In a pot, dissolve the doenjang in water or broth and bring to a boil. (If using meat, stir-fry the meat first before adding the broth.)',
-            'Once the broth is boiling, add hard vegetables like potatoes and onions.',
-            'When the vegetables are partially cooked, add softer ingredients like zucchini and tofu.',
-            'When all ingredients are cooked, add minced garlic, chili pepper, and green onion, and boil for another minute to finish.',
-            'Serve hot in an earthenware pot with a side of rice.'
+            '1. Bring the water to a boil and dissolve the doenjang paste.',
+            '2. Add the clams and vegetables, and cook until the clams open.',
+            '3. Add the tofu and simmer for another 5-10 minutes.',
+            '4. Serve hot as a communal stew.'
         ]
     },
     {
         id: 'jajangmyeon',
-        name: 'Jajangmyeon (Black Bean Noodles)',
-        imageUrl: 'https://i.pinimg.com/736x/6f/32/50/6f32502bce814de3b37ab96d4cd6bfc4.jpg',
-        description: 'A popular Korean-Chinese noodle dish topped with a thick sauce made of chunjang, diced pork, and vegetables.',
-        characteristics: 'Jajangmyeon is a popular Korean-Chinese noodle dish topped with a thick sauce made of chunjang (a salty black soybean paste), diced pork, and vegetables. It\'s known for its deep, savory, and slightly sweet flavor. As it\'s not spicy, it\'s a favorite among people of all ages. There are many variations, such as Gan-jjajang and Jaengban-jjajang. In Korea, it\'s often eaten on special occasions like graduations and moving days.',
+        name: 'Jajangmyeon',
+        imageUrl: 'https://image.nanobanana.dev/food/jajangmyeon',
+        description: 'A popular Korean-Chinese noodle dish topped with a thick, savory black bean sauce. The sauce is made with chunjang (a sweet soybean paste), diced pork, and vegetables.',
+        characteristics: 'A rich, savory, and slightly sweet noodle dish. The thick, dark sauce coats the chewy noodles perfectly, making for a satisfying meal.',
         ingredients: [
-            '2 servings of fresh noodles or kalguksu noodles',
-            '100g pork, 1 onion, 1/2 zucchini',
-            'Jajang Sauce: 2 tbsp roasted chunjang, 1 tbsp minced garlic, 1 tbsp sugar, 1 tbsp oyster sauce, 1 tbsp soy sauce, starch water',
-            '(Optional) Cucumber, peas, fried egg'
+            '200g fresh noodles',
+            '100g diced pork',
+            '1/2 cup chunjang (black bean paste)',
+            '1 cup diced vegetables (onions, potatoes, zucchini)',
+            '1 tbsp sugar'
         ],
         recipe: [
-            'Dice the pork and vegetables (onion, zucchini).',
-            'In a heated pan with oil, stir-fry the minced garlic and pork. When the pork is cooked, add the vegetables and stir-fry together.',
-            'When the vegetables start to become translucent, add the chunjang and stir-fry thoroughly over low heat to prevent burning.',
-            'Add sugar, oyster sauce, and soy sauce, then pour in a small amount of water and bring to a boil.',
-            'Once the sauce is boiling, gradually add starch water to thicken it to your desired consistency.',
-            'Pour the Jajang sauce over boiled noodles and top with optional cucumber slices or a fried egg to finish.'
+            '1. Stir-fry the diced pork and vegetables until cooked.',
+            '2. Add the chunjang paste and sugar, and stir-fry for a few more minutes.',
+            '3. Add a little water to create a thick sauce and simmer.',
+            '4. Cook the noodles, drain, and top with the black bean sauce.'
         ]
     }
 ];
 
-// Function to add all recipes to Firestore
 function populateDatabase() {
     const batch = db.batch();
-    recipesTo_add.forEach(recipe => {
+
+    recipesTo_ADD.forEach(recipe => {
         const docRef = db.collection("recipes").doc(recipe.id);
-        batch.set(docRef, recipe);
+        batch.set(docRef, {
+            name: recipe.name,
+            imageUrl: recipe.imageUrl,
+            description: recipe.description,
+            characteristics: recipe.characteristics,
+            ingredients: recipe.ingredients,
+            recipe: recipe.recipe,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
     });
 
     batch.commit().then(() => {
-        console.log("Successfully populated the database with initial recipes!");
+        console.log("Database populated successfully!");
     }).catch((error) => {
         console.error("Error populating database: ", error);
     });
 }
 
-// To run this, open your browser's developer console and call populateDatabase();
+populateDatabase();

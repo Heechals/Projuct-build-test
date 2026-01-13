@@ -18,10 +18,10 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero hero-k-pop">
         <div class="hero-content">
-            <h1>Experience the Heart of Korea</h1>
-            <p>From vibrant cities to serene temples, from savory dishes to the rhythm of K-Pop.</p>
+            <h1>Dive into the K-Verse</h1>
+            <p>From ancient palaces to the global stage, your journey starts here.</p>
         </div>
     </section>
 
@@ -82,7 +82,7 @@
         const loadingIndicator = document.getElementById('loading-indicator');
 
         // Listen for recipe data from Firestore
-        db.collection("recipes").limit(5).onSnapshot((querySnapshot) => {
+        db.collection("recipes").orderBy("createdAt", "desc").limit(5).onSnapshot((querySnapshot) => {
             featuredRecipes.innerHTML = ''; // Clear the list
             if (loadingIndicator) {
                 loadingIndicator.style.display = 'none';

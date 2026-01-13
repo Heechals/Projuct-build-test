@@ -1,39 +1,22 @@
-# Project Blueprint: "Learn Korean Culture"
+# Project Blueprint
 
 ## Overview
 
-"Learn Korean Culture" is a web service designed to introduce global users to the richness of Korean culture. Through interactive features and visually engaging, high-quality content, the platform aims to provide an accessible and enjoyable experience of Korea's food, landmarks, and language.
+This project is a web application that introduces users to Korean culture. It includes sections for K-Food, Virtual Tours, and Hangeul. The main page has a catchy title and a sophisticated K-culture background to attract global users.
 
-## Design Principles
+## Features
 
-*   **Modern & Elegant:** A clean, sophisticated design that reinterprets traditional Korean aesthetics in a modern context.
-*   **User-Centric:** A user-friendly interface that is easy to navigate and provides valuable, original content.
-*   **Visually Engaging:** High-quality imagery and a carefully selected color palette to create a captivating experience.
-*   **Accessible:** Designed to be usable and enjoyable for everyone.
+*   **K-Food:** Displays a list of Korean food recipes.
+*   **Virtual Tours:** Provides virtual tours of famous Korean landmarks.
+*   **Hangeul:** A section to learn the Korean alphabet (coming soon).
+*   **Impactful Hero Section:** The main page has an impactful hero section with the title "Dive into the K-Verse" and the subtitle "From ancient palaces to the global stage, your journey starts here.", along with a sophisticated K-culture background image.
+*   **Impactful Main Content Background:** The main content area now features a subtle K-culture themed background image with a transparent white overlay to ensure text readability.
 
-## Features & AdSense Compliance Plan
+## Current Task
 
-### Phase 1: Foundation & AdSense Prep (Current)
+The current task was to change the background of the main content area to an impactful image.
 
-*   **Homepage Redesign:** A new layout with a hero section and a modern color palette.
-*   **K-Food Section:** An expanded section dedicated to Korean cuisine, featuring beautiful images and detailed descriptions.
-*   **Virtual Tours Section:** A new section to showcase famous Korean landmarks with high-quality images and descriptions.
-*   **Essential Pages:**
-    *   `about.html`: Explains the mission and vision of the site.
-    *   `contact.html`: A simple contact page.
-    *   `privacy.html`: A comprehensive privacy policy.
-*   **Navigation:** Add links to the essential pages in the footer.
+### Steps Taken
 
-### Phase 2 (Future)
-
-*   **Hangeul Section:** An interactive section for learning the Korean alphabet.
-
-## Current Plan
-
-1.  **Create Essential Pages:**
-    *   Create `about.html`, `contact.html`, and `privacy.html`.
-2.  **Add High-Quality Content:**
-    *   Add detailed descriptions to the K-Food section.
-    *   Add content (images and descriptions) to the Virtual Tours section.
-3.  **Improve Navigation:**
-    *   Add links to the new pages in the footer of `index.html`.
+1.  Modified the `style.css` file to add a K-culture themed background image to the `main` element. A `::before` pseudo-element with a semi-transparent white overlay was added to ensure text readability over the background.
+2.  Updated the `blueprint.md` file to reflect the changes made to the project.

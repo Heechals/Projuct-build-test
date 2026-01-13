@@ -36,6 +36,11 @@
     </style>
 </head>
 <body>
+    <script>
+        if (sessionStorage.getItem('isAdmin') !== 'true') {
+            window.location.href = 'admin-login.html';
+        }
+    </script>
     <header>
         <div class="logo"><a href="index.html">Learn Korean Culture</a></div>
     </header>
@@ -88,7 +93,8 @@
                 description,
                 characteristics,
                 ingredients,
-                recipe
+                recipe,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
             })
             .then(() => {
                 alert('Recipe added successfully!');
