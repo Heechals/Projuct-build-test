@@ -89,7 +89,7 @@ header nav a:hover {
 
 /* K-pop Demon Hunters Hero Section */
 .hero-k-pop {
-    background: url('https://i.pinimg.com/originals/f3/d9/39/f3d939638c4c3b1e3e7f4b8f3a3d5b0c.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://royal.cha.go.kr/images/english/main/img_main_visual_1.jpg') no-repeat center center/cover;
     position: relative;
     text-shadow: none; /* Removed for a cleaner look */
 }
