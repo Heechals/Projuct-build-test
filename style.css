@@ -19,21 +19,11 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.8;
-    background: url('https://i.pinimg.com/originals/ce/c8/16/cec81666c85e2b4f971c26f63f5b7c7b.jpg') no-repeat center center/cover;
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url('https://i.pinimg.com/originals/ce/c8/16/cec81666c85e2b4f971c26f63f5b7c7b.jpg') no-repeat center center/cover;
     color: var(--text-color);
-    position: relative;
     background-attachment: fixed;
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.7); /* Subtle white overlay for readability */
-    z-index: -1;
 }
 
 a {
@@ -243,11 +233,36 @@ footer {
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
-.food-detail img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+.recipe-title-header {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    border-radius: 8px 8px 0 0;
     margin-bottom: 2rem;
+}
+
+.recipe-title-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px 8px 0 0;
+}
+
+.recipe-title-header h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
 .food-detail h1 {

@@ -14,10 +14,11 @@ This project is a web application that introduces users to Korean culture. It in
 
 ## Current Task
 
-The current task was to fix the issue where the background image was not visible, even after the previous fix.
+The current task was to fix a persistent issue where the background image was not visible on the live deployed site.
 
 ### Steps Taken
 
-1.  Identified that the `footer` element was not in the same stacking context as the `main` and `header` elements, causing it to be rendered behind the `body`'s pseudo-element overlay.
-2.  Modified the `style.css` file to add `position: relative` and `z-index: 1` to the `footer` element. This ensures all content is rendered on top of the background overlay.
-3.  Updated the `blueprint.md` file to reflect the changes made to the project.
+1.  Diagnosed the issue as a likely `z-index` or stacking context problem with the `body::before` pseudo-element overlay, which can be inconsistent across browsers and environments.
+2.  Modified the `style.css` file to implement a more robust solution. The `body::before` pseudo-element was removed.
+3.  Instead, a multi-layered `background` was applied directly to the `body`. This combines the `linear-gradient` overlay and the `url()` for the image in a single, more reliable property, eliminating `z-index` issues.
+4.  Updated the `blueprint.md` file to reflect the new, more robust implementation.

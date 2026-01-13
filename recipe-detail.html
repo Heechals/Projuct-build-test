@@ -69,8 +69,9 @@
 
                     recipeContainer.innerHTML = `
                         <section class="food-detail">
-                            <h1>${recipe.name}</h1>
-                            <img src="${recipe.imageUrl}" alt="${recipe.name}">
+                            <div class="recipe-title-header" style="background-image: url('${recipe.imageUrl}');">
+                                <h1>${recipe.name}</h1>
+                            </div>
 
                             <div class="content-section">
                                 <h2>Characteristics</h2>
