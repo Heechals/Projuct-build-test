@@ -14,11 +14,10 @@ This project is a web application that introduces users to Korean culture. It in
 
 ## Current Task
 
-The current task was to fix the issue where the background image of the main content area was not visible.
+The current task was to fix the issue where the background image was not visible, even after the previous fix.
 
 ### Steps Taken
 
-1.  Modified the `style.css` file to move the background image and overlay from the `main` element to the `body` element, making it a full-page background.
-2.  Made the background of the `.content-section` and `.food-item` elements semi-transparent, allowing the body's background image to be visible through them.
-3.  Removed the now-redundant background properties from the `main` element.
-4.  Updated the `blueprint.md` file to reflect the changes made to the project.
+1.  Identified that the `footer` element was not in the same stacking context as the `main` and `header` elements, causing it to be rendered behind the `body`'s pseudo-element overlay.
+2.  Modified the `style.css` file to add `position: relative` and `z-index: 1` to the `footer` element. This ensures all content is rendered on top of the background overlay.
+3.  Updated the `blueprint.md` file to reflect the changes made to the project.
