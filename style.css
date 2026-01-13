@@ -19,8 +19,21 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.8;
-    background-color: var(--light-bg);
+    background: url('https://i.pinimg.com/originals/ce/c8/16/cec81666c85e2b4f971c26f63f5b7c7b.jpg') no-repeat center center/cover;
     color: var(--text-color);
+    position: relative;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7); /* Subtle white overlay for readability */
+    z-index: -1;
 }
 
 a {
@@ -65,7 +78,7 @@ header nav a:hover {
 /* Hero Section */
 .hero {
     height: 60vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=2070&auto=format&fit=crop');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=2070&auto-format&fit=crop');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -138,25 +151,16 @@ header nav a:hover {
 /* Main Content */
 main {
     padding: 2rem;
-    background: url('https://i.pinimg.com/originals/ce/c8/16/cec81666c85e2b4f971c26f63f5b7c7b.jpg') no-repeat center center/cover;
     position: relative;
-    z-index: 0; /* Ensure content is above overlay */
-}
-
-main::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.7); /* Subtle white overlay for readability */
-    z-index: -1; /* Place overlay behind content */
+    z-index: 1;
 }
 
 .content-section {
     padding: 3rem 0;
-    border-bottom: 1px solid var(--bg-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    border-radius: 10px;
 }
 
 .content-section h2 {
@@ -171,10 +175,11 @@ main::before {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    padding: 0 2rem;
 }
 
 .food-item {
-    background-color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
