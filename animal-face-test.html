@@ -21,25 +21,62 @@
         <section class="content-section">
             <h2>Animal Face Test</h2>
             <div class="test-container">
-                <p>Upload your photo to find out which animal you resemble!</p>
-                <input type="file" id="photo-input" accept="image/*">
-                <button id="start-test-btn">Start Test</button>
+                <p>Which animal do you look like? Upload your photo to find out!</p>
+                
+                <div class="upload-area">
+                    <input type="file" id="photo-input" accept="image/*" style="display: none;">
+                    <label for="photo-input" class="upload-label">
+                        <div id="image-preview">
+                            <span>+</span>
+                            <p>Click to upload a photo</p>
+                        </div>
+                    </label>
+                </div>
+
+                <button id="start-test-btn" class="test-btn" disabled>Start Test</button>
                 <div id="result-container"></div>
             </div>
         </section>
     </main>
 
-    <script>
+<script>
         const startTestBtn = document.getElementById('start-test-btn');
         const photoInput = document.getElementById('photo-input');
         const resultContainer = document.getElementById('result-container');
+        const imagePreview = document.getElementById('image-preview');
 
-        const animals = [
-            { name: 'Cat', imageUrl: 'https://www.freeimages.com/photo/cat-1407700' },
-            { name: 'Dog', imageUrl: 'https://cdn.stocksnap.io/img-thumbs/960w/dog-animal_V2O4T6W5AM.jpg' },
-            { name: 'Rabbit', imageUrl: 'https://cdn.stocksnap.io/img-thumbs/960w/rabbit-animal_V8GD2FNYG8.jpg' },
-            { name: 'Fox', imageUrl: 'https://images.unsplash.com/photo-1542369401-2454e83d94b2?q=80&w=2070&auto=format&fit=crop' }
-        ];
+        const animals = {
+            'Dog': [
+                'https://lh3.google.com/u/0/d/1lScQ3_l7avrazQ1SgUoeWmNXG3D75by_=w1365-h957-iv1?auditContext=prefetch',
+                'https://lh3.google.com/u/0/d/1dPM1xjfj4vceolEtfFuCKiJ0vyzCsggU=w1365-h957-iv1?auditContext=prefetch',
+                'https://lh3.google.com/u/0/d/1bvDNKlA4nP0h4NTjXsaULRCYY_JHVaqF=w1365-h957-iv1?auditContext=prefetch'
+            ],
+            'Cat': [
+                'https://lh3.google.com/u/0/d/1g21jB8sANnokj6UT2keqbFakVsfyRCm9=w1365-h957-iv1?auditContext=prefetch',
+                'https://lh3.google.com/u/0/d/1aK2uxa2o7irVCKhig9mSZvnBmeed3z1A=w1365-h957-iv1?auditContext=prefetch',
+                'https://lh3.google.com/u/0/d/1Hf7wUTSKdsScRn2U9XXEzFW3392tMLkF=w1365-h957-iv1?auditContext=prefetch'
+            ],
+            'Bear': [
+                'https://lh3.google.com/u/0/d/1f0WPTM9kcI4Kc-Ru7zEygBePZ2gqvb-q=w1365-h957-iv1?auditContext=prefetch',
+                'https://lh3.google.com/u/0/d/15D4i6iXEtYjOvsUInDiMxhTM1qZz5VZt=w1365-h957-iv1?auditContext=prefetch',
+                'https://lh3.google.com/u/0/d/1aRJc96sS2XQlVm7Uu3QigWUHSLavlT18=w1365-h957-iv1?auditContext=prefetch'
+            ]
+        };
+
+        photoInput.addEventListener('change', () => {
+            const file = photoInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imagePreview.innerHTML = `<img src="${e.target.result}" alt="Image preview">`;
+                    startTestBtn.disabled = false;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.innerHTML = '<span>+</span><p>Click to upload a photo</p>';
+                startTestBtn.disabled = true;
+            }
+        });
 
         startTestBtn.addEventListener('click', () => {
             if (!photoInput.files || photoInput.files.length === 0) {
@@ -51,10 +88,14 @@
 
             // Simulate AI processing
             setTimeout(() => {
-                const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+                const animalNames = Object.keys(animals);
+                const randomAnimalName = animalNames[Math.floor(Math.random() * animalNames.length)];
+                const randomImageUrls = animals[randomAnimalName];
+                const randomImageUrl = randomImageUrls[Math.floor(Math.random() * randomImageUrls.length)];
+                
                 resultContainer.innerHTML = `
-                    <h3>You look like a ${randomAnimal.name}!</h3>
-                    <img src="${randomAnimal.imageUrl}" alt="${randomAnimal.name}" style="max-width: 100%; border-radius: 10px;">
+                    <h3>You look like a ${randomAnimalName}!</h3>
+                    <img src="${randomImageUrl}" alt="${randomAnimalName}" style="max-width: 100%; border-radius: 10px;">
                 `;
             }, 2000);
         });
