@@ -17,20 +17,47 @@
         </nav>
     </header>
 
-    <main>
+<main>
         <section class="content-section">
             <h2>Animal Face Test</h2>
-            <p style="text-align: center;">Coming soon...</p>
+            <div class="test-container">
+                <p>Upload your photo to find out which animal you resemble!</p>
+                <input type="file" id="photo-input" accept="image/*">
+                <button id="start-test-btn">Start Test</button>
+                <div id="result-container"></div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-links">
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="privacy.html">Privacy Policy</a>
-        </div>
-        <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
-    </footer>
+    <script>
+        const startTestBtn = document.getElementById('start-test-btn');
+        const photoInput = document.getElementById('photo-input');
+        const resultContainer = document.getElementById('result-container');
+
+        const animals = [
+            { name: 'Cat', imageUrl: 'https://www.freeimages.com/photo/cat-1407700' },
+            { name: 'Dog', imageUrl: 'https://cdn.stocksnap.io/img-thumbs/960w/dog-animal_V2O4T6W5AM.jpg' },
+            { name: 'Rabbit', imageUrl: 'https://cdn.stocksnap.io/img-thumbs/960w/rabbit-animal_V8GD2FNYG8.jpg' },
+            { name: 'Fox', imageUrl: 'https://images.unsplash.com/photo-1542369401-2454e83d94b2?q=80&w=2070&auto=format&fit=crop' }
+        ];
+
+        startTestBtn.addEventListener('click', () => {
+            if (!photoInput.files || photoInput.files.length === 0) {
+                alert('Please select a photo first!');
+                return;
+            }
+
+            resultContainer.innerHTML = '<p>Analyzing your photo...</p>';
+
+            // Simulate AI processing
+            setTimeout(() => {
+                const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+                resultContainer.innerHTML = `
+                    <h3>You look like a ${randomAnimal.name}!</h3>
+                    <img src="${randomAnimal.imageUrl}" alt="${randomAnimal.name}" style="max-width: 100%; border-radius: 10px;">
+                `;
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
