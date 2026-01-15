@@ -20,7 +20,12 @@
     <main>
         <section class="content-section">
             <h2>Today's Fortune</h2>
-            <p style="text-align: center;">Coming soon...</p>
+            <div class="test-container">
+                <p>Enter your date of birth to find out your fortune for today!</p>
+                <input type="date" id="birthdate-input" class="test-input" style="margin-bottom: 1rem;">
+                <button id="get-fortune-btn" class="test-btn">Get Fortune</button>
+                <div id="result-container" style="margin-top: 2rem;"></div>
+            </div>
         </section>
     </main>
 
@@ -32,5 +37,49 @@
         </div>
         <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
     </footer>
+
+    <script src="fortunes.js"></script>
+    <script>
+        const getFortuneBtn = document.getElementById('get-fortune-btn');
+        const birthdateInput = document.getElementById('birthdate-input');
+        const resultContainer = document.getElementById('result-container');
+
+        getFortuneBtn.addEventListener('click', () => {
+            const birthdateValue = birthdateInput.value;
+            if (!birthdateValue) {
+                alert('Please enter your date of birth.');
+                return;
+            }
+
+            const birthDate = new Date(birthdateValue);
+            const today = new Date();
+
+            // Create a simple seed based on the birth date and today's date
+            const seed = birthDate.getFullYear() + birthDate.getMonth() + birthDate.getDate() +
+                         today.getFullYear() + today.getMonth() + today.getDate();
+
+            // Select fortunes using the seed
+            const generalFortune = fortunes.general_luck[seed % fortunes.general_luck.length];
+            const moneyFortune = fortunes.money_luck[(seed + 1) % fortunes.money_luck.length];
+            const relationshipFortune = fortunes.relationship_luck[(seed + 2) % fortunes.relationship_luck.length];
+            const healthFortune = fortunes.health_luck[(seed + 3) % fortunes.health_luck.length];
+            const luckyColor = fortunes.lucky_colors[(seed + 4) % fortunes.lucky_colors.length];
+            const luckyNumber = fortunes.lucky_numbers[(seed + 5) % fortunes.lucky_numbers.length];
+
+            resultContainer.innerHTML = `
+                <div class="fortune-result">
+                    <h3>Your Fortune for Today</h3>
+                    <p><strong>General Luck:</strong> ${generalFortune}</p>
+                    <p><strong>Money & Finance:</strong> ${moneyFortune}</p>
+                    <p><strong>Relationships:</strong> ${relationshipFortune}</p>
+                    <p><strong>Health & Wellness:</strong> ${healthFortune}</p>
+                    <hr>
+                    <p><strong>Today's Lucky Color:</strong> ${luckyColor}</p>
+                    <p><strong>Today's Lucky Number:</strong> ${luckyNumber}</p>
+                </div>
+            `;
+        });
+    </script>
 </body>
 </html>
+

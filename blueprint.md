@@ -13,22 +13,23 @@ This project is a web application that introduces users to Korean culture. It in
 *   **Impactful Main Content Background:** The entire page now features a subtle K-culture themed background image with a transparent white overlay to ensure text readability, which is visible through the content sections.
 *   **Animal Face Test:** A fun test that tells users which animal they look like.
 *   **Korean Meal Recommendation:** A dynamic recommendation service that suggests a Korean meal based on the user's local weather, the current season, and the day of the week. It provides the recipe, tips, and a reason for the recommendation.
+*   **Today's Fortune:** A fun service that provides a personalized fortune for the day based on the user's date of birth. It includes categories for general, money, relationship, and health luck, as well as a lucky color and number.
 
 ## Current Task
 
-The current task was to implement the Korean Meal Recommendation service.
+The current task was to implement the "Today's Fortune" service.
 
 ### Steps Taken
 
-1.  **`meals.js` Creation**:
-    *   Created a new file `meals.js` to store the meal data, including names, descriptions, recipes, tips, and recommendation criteria (season, weather, day).
-2.  **`korean-meal-test.html` Implementation**:
-    *   Replaced the "Coming soon..." placeholder with a "Get Recommendation" button and a result container.
+1.  **`fortunes.js` Creation**:
+    *   Created a new file `fortunes.js` to store various fortune-telling phrases and lucky items, categorized for variability.
+2.  **`fortune-test.html` Implementation**:
+    *   Replaced the "Coming soon..." placeholder with a date input for the user's birthday and a "Get Fortune" button.
     *   Added JavaScript logic to:
-        *   Get the user's geolocation.
-        *   Fetch current weather data from the Open-Meteo API.
-        *   Determine the current season and day of the week.
-        *   Filter the `meals` data based on the gathered criteria.
-        *   Display the recommended meal along with its recipe, tips, and the reason for the recommendation.
-        *   Handle errors gracefully (e.g., location permission denied).
-3.  **`blueprint.md` Update**: This file was updated to document the new feature.
+        *   Take the user's date of birth as input.
+        *   Generate a "seed" based on the birth date and the current date to create a pseudo-random, personalized result.
+        *   Select a fortune from different categories (general, money, relationship, health) and pick a lucky color/number.
+        *   Display the complete fortune to the user.
+3.  **Korean Meal Recommendation (Previous Task)**:
+    *   Implemented a dynamic recommendation service on `korean-meal-test.html`.
+4.  **`blueprint.md` Update**: This file was updated to document the new feature.
