@@ -15,16 +15,18 @@ This project is a web application that introduces users to Korean culture. It in
 
 ## Current Task
 
-The current task was to change the text "Popularity Tests" to "Popular Tests" on the main page and the tests page.
+The current task was to change the text "K-Food" to "Popular Tests" in the navigation of the `recipes.html` page.
 
 ### Steps Taken
 
-1.  **`index.html` Modification**:
+1.  **`index.html` Modification (Previous Task)**:
     *   Changed the navigation link text from "Popularity Tests" to "Popular Tests".
-2.  **`tests.html` Modification**:
+2.  **`tests.html` Modification (Previous Task)**:
     *   Changed the navigation link text from "Popularity Tests" to "Popular Tests".
-3.  **Animal Face Test Update (Previous Task)**:
+3.  **`recipes.html` Modification**:
+    *   Changed the navigation link text from "K-Food" to "Popular Tests".
+4.  **Animal Face Test Update (Previous Task)**:
     *   Added more animal categories to the `animals` object in `animal-face-test.html`.
     *   Added image URLs for each new animal category.
     *   Corrected invalid URLs for 'Dog' and 'Fish' in `animal-face-test.html`.
-4.  **`blueprint.md` Update**: This file was updated to reflect all the above changes.
+5.  **`blueprint.md` Update**: This file was updated to reflect all the above changes.
