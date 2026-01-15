@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project is a web application that introduces users to Korean culture. It includes sections for Popularity Tests, Virtual Tours, and Hangeul. The main page has a catchy title and a sophisticated K-culture background to attract global users.
+This project is a web application that introduces users to Korean culture. It includes sections for Popular Tests, Virtual Tours, and Hangeul. The main page has a catchy title and a sophisticated K-culture background to attract global users.
 
 ## Features
 
-*   **Popularity Tests:** Displays a list of popular Korean tests. (Previously K-Food)
+*   **Popular Tests:** Displays a list of popular Korean tests. (Previously K-Food)
 *   **Virtual Tours:** Provides virtual tours of famous Korean landmarks.
 *   **Hangeul:** A section to learn the Korean alphabet (coming soon).
 *   **Impactful Hero Section:** The main page has an impactful hero section with the title "Dive into the K-Verse" and the subtitle "From ancient palaces to the global stage, your journey starts here.", along with a sophisticated K-culture background image.
@@ -15,14 +15,14 @@ This project is a web application that introduces users to Korean culture. It in
 
 ## Current Task
 
-The current task was to change the text "K-Food" to "Popularity Tests" on the main page and the tests page.
+The current task was to change the text "Popularity Tests" to "Popular Tests" on the main page and the tests page.
 
 ### Steps Taken
 
 1.  **`index.html` Modification**:
-    *   Changed the navigation link text from "K-Food" to "Popularity Tests".
+    *   Changed the navigation link text from "Popularity Tests" to "Popular Tests".
 2.  **`tests.html` Modification**:
-    *   Changed the navigation link text from "K-Food" to "Popularity Tests".
+    *   Changed the navigation link text from "Popularity Tests" to "Popular Tests".
 3.  **Animal Face Test Update (Previous Task)**:
     *   Added more animal categories to the `animals` object in `animal-face-test.html`.
     *   Added image URLs for each new animal category.
