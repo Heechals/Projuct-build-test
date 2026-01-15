@@ -11,7 +11,7 @@
         <div class="logo">Learn Korean Culture</div>
         <nav>
             <ul>
-                <li><a href="#k-food">K-Food</a></li>
+                <li><a href="#popular-tests">Popular Tests</a></li>
                 <li><a href="#virtual-tours">Virtual Tours</a></li>
                 <li><a href="#hangeul">Hangeul</a></li>
             </ul>
@@ -26,14 +26,14 @@
     </section>
 
     <main>
-        <section id="k-food" class="content-section">
+        <section id="popular-tests" class="content-section">
             <h2>Popular Tests in Korea</h2>
             <div class="more-info-link">
                 <a href="tests.html">More Info &rarr;</a>
             </div>
-            <div id="featured-recipes" class="k-food-gallery">
+            <div id="featured-tests" class="k-food-gallery">
                 <!-- Featured recipes will be loaded here dynamically -->
-                <p id="loading-indicator">Loading featured recipes...</p>
+                <p id="loading-indicator">Loading featured tests...</p>
             </div>
         </section>
 
@@ -78,45 +78,45 @@
     <script src="firebase-config.js"></script>
 
     <script>
-        const featuredRecipes = document.getElementById('featured-recipes');
+        const featuredTests = document.getElementById('featured-tests');
         const loadingIndicator = document.getElementById('loading-indicator');
 
-        // Listen for recipe data from Firestore
-        db.collection("recipes").orderBy("createdAt", "desc").limit(5).onSnapshot((querySnapshot) => {
-            featuredRecipes.innerHTML = ''; // Clear the list
+        // Listen for test data from Firestore
+        db.collection("tests").orderBy("createdAt", "desc").limit(5).onSnapshot((querySnapshot) => {
+            featuredTests.innerHTML = ''; // Clear the list
             if (loadingIndicator) {
                 loadingIndicator.style.display = 'none';
             }
 
             if (querySnapshot.empty) {
-                featuredRecipes.innerHTML = '<p>No featured recipes found.</p>';
+                featuredTests.innerHTML = '<p>No featured tests found.</p>';
                 return;
             }
 
             querySnapshot.forEach((doc) => {
-                const recipe = doc.data();
-                const recipeId = doc.id;
+                const test = doc.data();
+                const testId = doc.id;
 
-                // Create a card for each recipe
-                const recipeCard = document.createElement('a');
-                recipeCard.href = `recipe-detail.html?id=${recipeId}`; // Link to a future dynamic detail page
-                recipeCard.className = 'food-item-link';
+                // Create a card for each test
+                const testCard = document.createElement('a');
+                testCard.href = `test-detail.html?id=${testId}`; // Link to a future dynamic detail page
+                testCard.className = 'test-item-link';
                 
-                recipeCard.innerHTML = `
+                testCard.innerHTML = `
                     <div class="food-item">
-                        <img src="${recipe.imageUrl}" alt="${recipe.name}">
-                        <h3>${recipe.name}</h3>
-                        <p>${recipe.description}</p>
+                        <img src="${test.imageUrl}" alt="${test.name}">
+                        <h3>${test.name}</h3>
+                        <p>${test.description}</p>
                     </div>
                 `;
-                featuredRecipes.appendChild(recipeCard);
+                featuredTests.appendChild(testCard);
             });
         }, (error) => {
-            console.error("Error fetching recipes: ", error);
+            console.error("Error fetching tests: ", error);
             if(loadingIndicator) {
                 loadingIndicator.style.display = 'none';
             }
-            featuredRecipes.innerHTML = '<p>Could not load recipes. Please check the console for errors.</p>';
+            featuredTests.innerHTML = '<p>Could not load tests. Please check the console for errors.</p>';
         });
     </script>
 </body>
