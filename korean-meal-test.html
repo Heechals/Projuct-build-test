@@ -20,7 +20,11 @@
     <main>
         <section class="content-section">
             <h2>Korean Meal Recommendation</h2>
-            <p style="text-align: center;">Coming soon...</p>
+            <div class="test-container">
+                <p>Click the button to get a recommendation for your next Korean meal based on the weather, season, and day of the week!</p>
+                <button id="get-recommendation-btn" class="test-btn">Get Recommendation</button>
+                <div id="result-container" style="margin-top: 2rem;"></div>
+            </div>
         </section>
     </main>
 
@@ -32,5 +36,123 @@
         </div>
         <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
     </footer>
+
+    <script src="meals.js"></script>
+    <script>
+        const getRecommendationBtn = document.getElementById('get-recommendation-btn');
+        const resultContainer = document.getElementById('result-container');
+
+        getRecommendationBtn.addEventListener('click', () => {
+            resultContainer.innerHTML = '<p>Getting your location and today\'s forecast...</p>';
+
+            navigator.geolocation.getCurrentPosition(fetchWeather, handleLocationError);
+        });
+
+        function fetchWeather(position) {
+            const { latitude, longitude } = position.coords;
+            const weatherApiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+
+            fetch(weatherApiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const weather = data.current_weather;
+                    const reason = getRecommendation(weather);
+                    displayResult(reason);
+                })
+                .catch(error => {
+                    console.error('Error fetching weather:', error);
+                    resultContainer.innerHTML = '<p>Could not fetch weather data. A random meal will be recommended.</p>';
+                    const reason = getRecommendation(null); // Get a random recommendation
+                    displayResult(reason);
+                });
+        }
+
+        function handleLocationError(error) {
+            console.error('Geolocation error:', error);
+            resultContainer.innerHTML = '<p>Could not get your location. A random meal will be recommended.</p>';
+            const reason = getRecommendation(null); // Get a random recommendation
+            displayResult(reason);
+        }
+
+        function getWeatherCondition(weather) {
+            if (!weather) return [];
+
+            const conditions = [];
+            const code = weather.weathercode;
+            const temp = weather.temperature;
+
+            if (temp > 25) conditions.push('Hot');
+            if (temp < 10) conditions.push('Cold');
+
+            if (code === 0) conditions.push('Sunny');
+            if ([1, 2, 3, 45, 48].includes(code)) conditions.push('Cloudy');
+            if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82, 95, 96, 99].includes(code)) {
+                conditions.push('Rainy');
+            }
+            return conditions;
+        }
+
+        function getCurrentSeason() {
+            const month = new Date().getMonth();
+            if (month >= 2 && month <= 4) return 'Spring';
+            if (month >= 5 && month <= 7) return 'Summer';
+            if (month >= 8 && month <= 10) return 'Autumn';
+            return 'Winter';
+        }
+
+        function getCurrentDay() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            return days[new Date().getDay()];
+        }
+
+        function getRecommendation(weather) {
+            const weatherConditions = getWeatherCondition(weather);
+            const season = getCurrentSeason();
+            const day = getCurrentDay();
+            
+            let reasonText = `It's a ${day} in ${season}.`;
+            if (weather) {
+                reasonText += ` The weather is ${weather.temperature}°C and ${weatherConditions.join(', ')}.`;
+            }
+
+            const filteredMeals = meals.filter(meal => {
+                const criteria = meal.recommendation_criteria;
+                const seasonMatch = criteria.season.length === 0 || criteria.season.includes(season);
+                const dayMatch = criteria.day.length === 0 || criteria.day.includes(day);
+                const weatherMatch = criteria.weather.length === 0 || weatherConditions.some(c => criteria.weather.includes(c));
+                
+                return seasonMatch && dayMatch && weatherMatch;
+            });
+
+            let recommendedMeal;
+            if (filteredMeals.length > 0) {
+                recommendedMeal = filteredMeals[Math.floor(Math.random() * filteredMeals.length)];
+                reasonText = `Based on today's conditions (${reasonText}), we recommend this meal!`;
+            } else {
+                recommendedMeal = meals[Math.floor(Math.random() * meals.length)];
+                reasonText = `We couldn't find a perfect match for today's conditions, but here is a great choice for you:`;
+            }
+            
+            return { meal: recommendedMeal, reason: reasonText };
+        }
+
+        function displayResult(result) {
+            const { meal, reason } = result;
+            let recipeHtml = '<ol>';
+            meal.recipe.forEach(step => { recipeHtml += `<li>${step}</li>`; });
+            recipeHtml += '</ol>';
+
+            resultContainer.innerHTML = `
+                <h3>${meal.name}</h3>
+                <p><strong>Why this recommendation?</strong> ${reason}</p>
+                <p>${meal.description}</p>
+                <h4>Recipe</h4>
+                ${recipeHtml}
+                <h4>How to Enjoy</h4>
+                <p>${meal.tips}</p>
+            `;
+        }
+    </script>
 </body>
 </html>
+
