@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Recipes - Learn Korean Culture</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .recipe-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        .recipe-table th, .recipe-table td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        .recipe-table th {
+            background-color: #f2f2f2;
+        }
+        .add-recipe-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html">Learn Korean Culture</a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html#k-food">K-Food</a></li>
+                <li><a href="index.html#virtual-tours">Virtual Tours</a></li>
+                <li><a href="index.html#hangeul">Hangeul</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2>All Recipes</h2>
+            <a href="admin-login.html" class="add-recipe-btn">Add Recipe</a>
+            <table id="recipe-list" class="recipe-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Recipes will be loaded here dynamically -->
+                    <tr id="loading-indicator"><td colspan="3">Loading recipes...</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+
+    <script>
+        const recipeList = document.getElementById('recipe-list').getElementsByTagName('tbody')[0];
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        // Listen for recipe data from Firestore
+        db.collection("recipes").orderBy("createdAt", "desc").onSnapshot((querySnapshot) => {
+            recipeList.innerHTML = ''; // Clear the list
+            loadingIndicator.style.display = 'none';
+
+            if (querySnapshot.empty) {
+                recipeList.innerHTML = '<tr><td colspan="3">No recipes found. The administrator needs to add some!</td></tr>';
+                return;
+            }
+
+            querySnapshot.forEach((doc) => {
+                const recipe = doc.data();
+                const recipeId = doc.id;
+
+                const row = recipeList.insertRow();
+                row.style.cursor = 'pointer';
+                row.onclick = () => { window.location.href = `recipe-detail.html?id=${recipeId}`; };
+
+                const cellName = row.insertCell(0);
+                const cellDescription = row.insertCell(1);
+                const cellDate = row.insertCell(2);
+
+                cellName.textContent = recipe.name;
+                cellDescription.textContent = recipe.description.substring(0, 10) + (recipe.description.length > 10 ? '...' : '');
+                cellDate.textContent = recipe.createdAt ? recipe.createdAt.toDate().toLocaleDateString() : 'N/A';
+            });
+        }, (error) => {
+            console.error("Error fetching recipes: ", error);
+            loadingIndicator.style.display = 'none';
+            recipeList.innerHTML = '<tr><td colspan="3">Could not load recipes. Please check the console for errors.</td></tr>';
+        });
+    </script>
+</body>
+</html>

@@ -3,39 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Tests - Learn Korean Culture</title>
+    <title>Popular Tests in Korea</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .test-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-        .test-table th, .test-table td {
-            border: 1px solid #ddd;
-            padding: 0.8rem;
-            text-align: left;
-        }
-        .test-table th {
-            background-color: #f2f2f2;
-        }
-        .add-test-btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.8rem 1.5rem;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
     <header>
-        <div class="logo"><a href="index.html">Learn Korean Culture</a></div>
+        <div class="logo">Learn Korean Culture</div>
         <nav>
             <ul>
-                <li><a href="index.html#popular-tests">Popular Tests</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#k-food">K-Food</a></li>
                 <li><a href="index.html#virtual-tours">Virtual Tours</a></li>
                 <li><a href="index.html#hangeul">Hangeul</a></li>
             </ul>
@@ -44,21 +21,27 @@
 
     <main>
         <section class="content-section">
-            <h2>All Tests</h2>
-            <a href="admin.html" class="add-test-btn">Add Test</a>
-            <table id="test-list" class="test-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Tests will be loaded here dynamically -->
-                    <tr id="loading-indicator"><td colspan="3">Loading tests...</td></tr>
-                </tbody>
-            </table>
+            <h2>Popular Tests in Korea</h2>
+            <div class="test-list">
+                <a href="animal-face-test.html" class="test-item-link">
+                    <div class="test-item">
+                        <h3>Animal Face Test</h3>
+                        <p>Upload your photo to find out which animal you resemble!</p>
+                    </div>
+                </a>
+                <a href="korean-meal-test.html" class="test-item-link">
+                    <div class="test-item">
+                        <h3>Korean Meal Recommendation</h3>
+                        <p>Click the button to get a recommendation for your next Korean meal.</p>
+                    </div>
+                </a>
+                <a href="fortune-test.html" class="test-item-link">
+                    <div class="test-item">
+                        <h3>Today's Fortune</h3>
+                        <p>Enter your name and date of birth to find out your fortune for today.</p>
+                    </div>
+                </a>
+            </div>
         </section>
     </main>
 
@@ -70,49 +53,5 @@
         </div>
         <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
     </footer>
-
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-    <!-- Firebase Config -->
-    <script src="firebase-config.js"></script>
-
-    <script>
-        const testList = document.getElementById('test-list').getElementsByTagName('tbody')[0];
-        const loadingIndicator = document.getElementById('loading-indicator');
-
-        // Listen for test data from Firestore
-        db.collection("tests").orderBy("createdAt", "desc").onSnapshot((querySnapshot) => {
-            testList.innerHTML = ''; // Clear the list
-            loadingIndicator.style.display = 'none';
-
-            if (querySnapshot.empty) {
-                testList.innerHTML = '<tr><td colspan="3">No tests found. The administrator needs to add some!</td></tr>';
-                return;
-            }
-
-            querySnapshot.forEach((doc) => {
-                const test = doc.data();
-                const testId = doc.id;
-
-                const row = testList.insertRow();
-                row.style.cursor = 'pointer';
-                row.onclick = () => { window.location.href = `test-detail.html?id=${testId}`; };
-
-                const cellName = row.insertCell(0);
-                const cellDescription = row.insertCell(1);
-                const cellDate = row.insertCell(2);
-
-                cellName.textContent = test.name;
-                cellDescription.textContent = test.description.substring(0, 10) + (test.description.length > 10 ? '...' : '');
-                cellDate.textContent = test.createdAt ? test.createdAt.toDate().toLocaleDateString() : 'N/A';
-            });
-        }, (error) => {
-            console.error("Error fetching tests: ", error);
-            loadingIndicator.style.display = 'none';
-            testList.innerHTML = '<tr><td colspan="3">Could not load tests. Please check the console for errors.</td></tr>';
-        });
-    </script>
 </body>
 </html>
