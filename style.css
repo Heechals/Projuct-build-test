@@ -87,37 +87,39 @@ header nav a:hover {
     font-size: 1.2rem;
 }
 
-/* K-pop Demon Hunters Hero Section */
-.hero-k-pop {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://upload.wikimedia.org/wikipedia/commons/e/e7/Gyeongbokgung-GeunJeongJeon.jpg') no-repeat center center/cover;
-    position: relative;
-    text-shadow: none; /* Removed for a cleaner look */
+@keyframes pan-down {
+    from {
+        background-position: center top;
+    }
+    to {
+        background-position: center bottom;
+    }
 }
 
-.hero-k-pop::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Removed the dark overlay for a brighter K-culture image */
+/* K-pop Demon Hunters Hero Section */
+.hero-k-pop {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://lh3.google.com/u/0/d/1oMIS_bIVfE2nbEolZci-0jx-ivfh_OSF=w958-h894-iv1?auditContext=prefetch') no-repeat center center/cover;
+    position: relative;
+    animation: pan-down 20s linear infinite alternate;
 }
 
 .hero-k-pop .hero-content {
     position: relative;
     z-index: 1;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 
 .hero-k-pop h1 {
     font-family: 'Georgia', serif; /* More dramatic font */
-    font-size: 4rem;
+    font-size: 4.5rem; /* Slightly larger */
     color: #fff;
+    font-weight: bold;
 }
 
 .hero-k-pop p {
     font-size: 1.5rem;
     color: #f0f0f0;
+    font-weight: 500;
 }
 
 .cta-button {
