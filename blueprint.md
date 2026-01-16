@@ -13,17 +13,20 @@ This project is a web application that introduces users to Korean culture. It in
 *   **Impactful Hero Section:** The main page has an impactful hero section with the title "Dive into the K-Verse" and the subtitle "From ancient palaces to the global stage, your journey starts here.", along with a sophisticated K-culture background image.
 *   **Impactful Main Content Background:** The entire page now features a subtle K-culture themed background image with a transparent white overlay to ensure text readability, which is visible through the content sections.
 *   **Animal Face Test:** A fun test that tells users which animal they look like.
-*   **Korean Meal Recommendation:** A dynamic recommendation service that suggests a Korean meal based on the user's local weather, the current season, and the day of the week. It provides the recipe, tips, and a reason for the recommendation.
+*   **Korean Meal Recommendation:** A dynamic recommendation service that suggests a Korean meal based on the user's local weather, the current season, and the day of the week. It provides the recipe, tips, a representative image, and a reason for the recommendation.
 *   **Today's Fortune:** A fun service that provides a personalized fortune for the day based on the user's date of birth. It includes categories for general, money, relationship, and health luck, as well as a lucky color and number.
 
 ## Current Task
 
-The current task was to make the "Learn Korean Culture" logo in the header a link to the homepage on all pages.
+The current task was to add images to the Korean Meal Recommendation service.
 
 ### Steps Taken
 
-1.  **HTML Modification**:
-    *   Iterated through all HTML files in the project.
-    *   Replaced the static `<div class="logo">Learn Korean Culture</div>` with `<div class="logo"><a href="index.html">Learn Korean Culture</a></div>`.
-    *   This change was applied to `index.html`, `tests.html`, `animal-face-test.html`, `korean-meal-test.html`, `fortune-test.html`, and other pages that did not already have the link.
-2.  **`blueprint.md` Update**: This file was updated to document the new feature.
+1.  **`meals.js` Update**:
+    *   Added an `imageUrl` property to all meal objects in the data file.
+    *   Expanded the list of meals to include many new dishes, each with a description, recipe, tips, and an image URL.
+2.  **`korean-meal-test.html` Update**:
+    *   Modified the `displayResult` function to include an `<img>` tag, which displays the image of the recommended meal.
+3.  **Logo Link (Previous Task)**:
+    *   Made the "Learn Korean Culture" logo a link to the homepage on all pages.
+4.  **`blueprint.md` Update**: This file was updated to document the new feature.
