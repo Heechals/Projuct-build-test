@@ -2,10 +2,11 @@
 
 ## Overview
 
-This project is a web application that introduces users to Korean culture. It includes sections for Popular Tests, Virtual Tours, and Hangeul. The main page has a catchy title and a sophisticated K-culture background to attract global users.
+This project is a web application that introduces users to Korean culture. It includes sections for Popular Tests, Virtual Tours, and Hangeul. The main page has a catchy title and a sophisticated K-culture background to attract global users. The main logo in the header now links to the homepage for improved navigation.
 
 ## Features
 
+*   **Homepage Link:** The main "Learn Korean Culture" logo in the header now acts as a link to the homepage (`index.html`) across all pages.
 *   **Popular Tests:** Displays a list of popular Korean tests, including the Animal Face Test, Korean Meal Recommendation, and Today's Fortune.
 *   **Virtual Tours:** Provides virtual tours of famous Korean landmarks.
 *   **Hangeul:** A section to learn the Korean alphabet (coming soon).
@@ -17,19 +18,12 @@ This project is a web application that introduces users to Korean culture. It in
 
 ## Current Task
 
-The current task was to implement the "Today's Fortune" service.
+The current task was to make the "Learn Korean Culture" logo in the header a link to the homepage on all pages.
 
 ### Steps Taken
 
-1.  **`fortunes.js` Creation**:
-    *   Created a new file `fortunes.js` to store various fortune-telling phrases and lucky items, categorized for variability.
-2.  **`fortune-test.html` Implementation**:
-    *   Replaced the "Coming soon..." placeholder with a date input for the user's birthday and a "Get Fortune" button.
-    *   Added JavaScript logic to:
-        *   Take the user's date of birth as input.
-        *   Generate a "seed" based on the birth date and the current date to create a pseudo-random, personalized result.
-        *   Select a fortune from different categories (general, money, relationship, health) and pick a lucky color/number.
-        *   Display the complete fortune to the user.
-3.  **Korean Meal Recommendation (Previous Task)**:
-    *   Implemented a dynamic recommendation service on `korean-meal-test.html`.
-4.  **`blueprint.md` Update**: This file was updated to document the new feature.
+1.  **HTML Modification**:
+    *   Iterated through all HTML files in the project.
+    *   Replaced the static `<div class="logo">Learn Korean Culture</div>` with `<div class="logo"><a href="index.html">Learn Korean Culture</a></div>`.
+    *   This change was applied to `index.html`, `tests.html`, `animal-face-test.html`, `korean-meal-test.html`, `fortune-test.html`, and other pages that did not already have the link.
+2.  **`blueprint.md` Update**: This file was updated to document the new feature.
