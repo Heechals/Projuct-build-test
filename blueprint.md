@@ -18,15 +18,12 @@ This project is a web application that introduces users to Korean culture. It in
 
 ## Current Task
 
-The current task was to add images to the Korean Meal Recommendation service.
+The current task was to update the image URL for "닭갈비 (Dakgalbi)" in the Korean Meal Recommendation service.
 
 ### Steps Taken
 
 1.  **`meals.js` Update**:
-    *   Added an `imageUrl` property to all meal objects in the data file.
-    *   Expanded the list of meals to include many new dishes, each with a description, recipe, tips, and an image URL.
-2.  **`korean-meal-test.html` Update**:
-    *   Modified the `displayResult` function to include an `<img>` tag, which displays the image of the recommended meal.
-3.  **Logo Link (Previous Task)**:
-    *   Made the "Learn Korean Culture" logo a link to the homepage on all pages.
-4.  **`blueprint.md` Update**: This file was updated to document the new feature.
+    *   Updated the `imageUrl` property for the "닭갈비 (Dakgalbi)" meal object with the new URL provided by the user.
+2.  **Korean Meal Recommendation (Previous Task)**:
+    *   Added images to the Korean Meal Recommendation service.
+3.  **`blueprint.md` Update**: This file was updated to document the specific image URL change.

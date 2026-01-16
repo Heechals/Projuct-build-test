@@ -79,7 +79,7 @@ const meals = [
     {
         name: "닭갈비 (Dakgalbi - Spicy Stir-fried Chicken)",
         description: "A popular dish made by stir-frying marinated chicken in a gochujang-based sauce with sweet potatoes, cabbage, and other vegetables.",
-        imageUrl: "https://lh3.google.com/u/0/d/1DaViPdsweeqV88qG-yO51Cmr4usgY9ra=w403-h894-iv1?auditContext=prefetch",
+        imageUrl: "https://lh3.google.com/u/0/d/1GgFXqhdHf-aTa_oK-r7ifWfnnIcvvYL7=w403-h894-iv1?auditContext=prefetch",
         recipe: ["Marinate diced chicken in a gochujang-based sauce.", "Stir-fry the chicken with vegetables in a large pan.", "Once cooked, it's often enjoyed communally from the pan."],
         tips: "After finishing most of the chicken and vegetables, it's common to add rice to the remaining sauce and stir-fry it for a delicious 'bokkeumbap' (fried rice).",
         recommendation_criteria: { season: ['Autumn', 'Winter'], weather: ['Cold'], day: ['Friday', 'Saturday'] }
