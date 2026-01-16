@@ -142,9 +142,14 @@
             meal.recipe.forEach(step => { recipeHtml += `<li>${step}</li>`; });
             recipeHtml += '</ol>';
 
+            let imageHtml = '';
+            if (meal.imageUrl) {
+                imageHtml = `<img src="${meal.imageUrl}" alt="${meal.name}" style="max-width: 100%; border-radius: 10px; margin-top: 1rem; margin-bottom: 1rem;">`;
+            }
+
             resultContainer.innerHTML = `
                 <h3>${meal.name}</h3>
-                <img src="${meal.imageUrl}" alt="${meal.name}" style="max-width: 100%; border-radius: 10px; margin-top: 1rem; margin-bottom: 1rem;">
+                ${imageHtml}
                 <p><strong>Why this recommendation?</strong> ${reason}</p>
                 <p>${meal.description}</p>
                 <h4>Recipe</h4>

@@ -86,6 +86,7 @@ const meals = [
     },
     {
         name: "부대찌개 (Budae-jjigae - Army Stew)",
+        description: "A spicy, hearty stew made with kimchi, spam, sausages, ramen noodles, and other ingredients, developed after the Korean War.",
         imageUrl: "https://lh3.google.com/u/0/d/1IuJEPoe8S0FX0wGkw7AB9W3zdoT8lck_=w403-h894-iv1?auditContext=prefetch",
         recipe: ["Sauté kimchi in a pot.", "Add sliced spam, sausages, baked beans, tofu, and various vegetables.", "Pour in broth (often anchovy or beef-based) and bring to a boil.", "Add ramen noodles and simmer until cooked."],
         tips: "Perfect for sharing with friends on a cold day. Don't forget a bowl of rice!",
@@ -122,5 +123,84 @@ const meals = [
         recipe: ["Grill thick slices of pork belly on a tabletop grill.", "Once cooked, cut the meat into bite-sized pieces with scissors.", "Serve with various dipping sauces and side dishes."],
         tips: "Wrap a piece of grilled meat in a lettuce or perilla leaf, add some grilled garlic, kimchi, and ssamjang for the perfect bite.",
         recommendation_criteria: { season: [], weather: [], day: ['Friday', 'Saturday'] }
+    },
+    {
+        name: "돼지갈비 (Dwaeji-galbi - Grilled Pork Ribs)",
+        description: "Pork ribs marinated in a sweet and savory soy-based sauce and then grilled. A crowd-pleasing favorite.",
+        imageUrl: "https://lh3.google.com/u/0/d/1nV2uqXPzwGjAjoJNJqxUFY8Jds9iL7_e=w403-h894-iv1?auditContext=prefetch",
+        recipe: ["Marinate pork ribs for several hours.", "Grill the ribs, turning occasionally, until cooked through and slightly charred.", "Serve with fresh vegetables."],
+        tips: "The sweet marinade can burn easily, so keep a close eye on the grill.",
+        recommendation_criteria: { season: [], weather: [], day: ['Saturday', 'Sunday'] }
+    },
+    {
+        name: "떡국 (Tteokguk - Rice Cake Soup)",
+        description: "A traditional soup eaten during the Korean New Year celebration. Made with thinly sliced rice cakes in a clear broth.",
+        imageUrl: "https://lh3.google.com/u/0/d/1kEWb-8ilrYZWk_HupH5rd7XWDZOaDOhc=w958-h894-iv1?auditContext=prefetch",
+        recipe: ["Simmer a clear broth (usually beef-based).", "Add sliced rice cakes (tteok) and cook until they are soft.", "Garnish with sliced egg, seaweed, and green onions."],
+        tips: "Eating Tteokguk on New Year's Day is believed to grant good fortune for the year and add one year to your age.",
+        recommendation_criteria: { season: ['Winter'], weather: ['Cold'], day: ['Sunday'] }
+    },
+    {
+        name: "만두 (Mandu - Korean Dumplings)",
+        description: "Dumplings filled with a mixture of minced meat, tofu, green onions, and ginger. Can be steamed, fried, or boiled.",
+        imageUrl: "https://lh3.google.com/u/0/d/1xMQqnG4oPjtB5A4pz-ah4_6OkKa38jKh=w403-h894-iv1?auditContext=prefetch",
+        recipe: ["Mix your fillings.", "Place a spoonful of filling onto a dumpling wrapper, fold, and seal.", "Steam, pan-fry, or boil in a soup."],
+        tips: "A versatile food that can be an appetizer, a main dish, or part of a soup (Mandu-guk).",
+        recommendation_criteria: { season: [], weather: [], day: [] }
+    },
+    {
+        name: "보쌈 (Bossam - Boiled Pork Wraps)",
+        description: "Pork belly boiled in a flavorful brine until tender, then thinly sliced. Served with various side dishes to be wrapped in lettuce or cabbage leaves.",
+        imageUrl: "https://lh3.google.com/u/0/d/1MBENIbE6H256BYGwuiD2EdMuqsclq7QY=w403-h894-iv1?auditContext=prefetch",
+        recipe: ["Boil pork belly with ingredients like green onion, garlic, and ginger until tender.", "Slice the pork and serve with fresh kimchi, oysters, and various sauces."],
+        tips: "The combination of the tender pork with fresh, spicy kimchi is the highlight of this dish.",
+        recommendation_criteria: { season: [], weather: [], day: ['Saturday', 'Sunday'] }
+    },
+    {
+        name: "설렁탕 (Seolleongtang - Ox Bone Soup)",
+        description: "A milky, flavorful soup made by simmering ox bones for several hours. A classic, hearty meal.",
+        imageUrl: "https://lh3.google.com/u/0/d/1drpXUten00Zp79Ddf8hXedFcxntz4s4O=w403-h894-iv1?auditContext=prefetch",
+        recipe: ["Simmer ox bones for many hours until the broth is milky white.", "Serve the soup with rice and thin slices of beef.", "Season to your liking at the table with salt, pepper, and chopped green onions."],
+        tips: "A perfect breakfast or restorative meal, especially during cold weather.",
+        recommendation_criteria: { season: ['Winter'], weather: ['Cold'], day: [] }
+    },
+    {
+        name: "순두부찌개 (Sundubu-jjigae - Soft Tofu Stew)",
+        description: "A spicy Korean stew made with 'sundubu' (extra soft, silken tofu), vegetables, and gochujang or gochugaru (chili powder).",
+        imageUrl: "https://lh3.google.com/u/0/d/1KsWuOImxgX5iekK0IiNiii_hGDqqFpLl=w403-h894-iv2?auditContext=prefetch",
+        recipe: ["Create a spicy base with chili powder and broth.", "Add soft tofu and your choice of seafood or meat.", "Crack an egg into the bubbling stew right before serving."],
+        tips: "The stew is served boiling hot, and the raw egg cooks in the residual heat.",
+        recommendation_criteria: { season: [], weather: ['Rainy', 'Cold'], day: [] }
+    },
+    {
+        name: "양념치킨 (Yangnyeom Chicken - Seasoned Fried Chicken)",
+        description: "Crispy Korean fried chicken smothered in a sticky, sweet, and spicy sauce.",
+        imageUrl: "https://lh3.google.com/u/0/d/15fLADPLLz1VrNhVanQtpFYzUYxU9GRNy=w403-h894-iv1?auditContext=prefetch",
+        recipe: ["Double-fry chicken pieces until extra crispy.", "Coat the chicken in a sauce made from gochujang, sugar, garlic, and other spices."],
+        tips: "The ultimate 'chimaek' (chicken and beer) combination. Best enjoyed with a cold beer.",
+        recommendation_criteria: { season: [], weather: [], day: ['Friday', 'Saturday'] }
+    },
+    {
+        name: "잡채 (Japchae - Glass Noodle Stir Fry)",
+        description: "A sweet and savory dish of stir-fried glass noodles and vegetables. A staple for Korean holidays and celebrations.",
+        imageUrl: "https://lh3.google.com/u/0/d/18dnT_dtImT-dHmqhFUzuWnBr4NOE9ANe=w403-h894-iv1?auditContext=prefetch",
+        recipe: ["Boil and rinse glass noodles.", "Individually stir-fry various vegetables (like carrots, spinach, mushrooms) and beef.", "Mix everything together with a soy sauce and sesame oil-based sauce."],
+        tips: "While it takes time to prepare each ingredient separately, the resulting flavor and texture combination is worth it.",
+        recommendation_criteria: { season: ['Spring', 'Autumn'], weather: [], day: ['Sunday'] }
+    },
+    {
+        name: "후라이드치킨 (Fried Chicken)",
+        description: "Classic Korean-style fried chicken, known for its extra crispy skin. (No image available for this specific entry)",
+        imageUrl: "https://lh3.google.com/u/0/d/1PEDsEYgPnKp8pDfYuIhZlFb-MtyH1FMf=w403-h894-iv1?auditContext=prefetch",
+        recipe: ["Coat chicken pieces in a seasoned flour and cornstarch batter.", "Double-fry for an ultra-crispy texture.", "Serve with salt and pepper or a dipping sauce."],
+        tips: "Often served with pickled radishes on the side to cleanse the palate.",
+        recommendation_criteria: { season: [], weather: [], day: ['Friday', 'Saturday'] }
+    },
+    {
+        name: "주먹밥 (Jumeokbap - Rice Balls)",
+        description: "A simple but delicious meal made from balls of warm rice mixed with various ingredients. (This is an example of a meal without an image).",
+        recipe: ["Mix warm rice with ingredients like chopped kimchi, seaweed flakes, and sesame oil.", "Form the mixture into bite-sized balls."],
+        tips: "A great way to use leftover rice and side dishes.",
+        recommendation_criteria: { season: [], weather: [], day: [] }
     }
 ];
