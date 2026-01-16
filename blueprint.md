@@ -23,6 +23,6 @@ The current task was to swap the image URLs for "떡볶이 (Tteokbokki)" and "�
 ### Steps Taken
 
 1.  **`meals.js` Update**:
-    *   Added the "부대찌개 (Budae-jjigae)" meal entry with its details.
-    *   Swapped the `imageUrl` properties between the "떡볶이 (Tteokbokki)" and "부대찌개 (Budae-jjigae)" meal objects.
-2.  **`blueprint.md` Update**: This file was updated to document the specific image URL swap and the addition of the "부대찌개 (Budae-jjigae)" meal.
+    *   Corrected a previous error by adding the `name` property to the "부대찌개 (Budae-jjigae)" meal object.
+    *   Swapped the `imageUrl` properties between the "떡볶이 (Tteokbokki)" and "부대찌개 (Budae-jjigae)" meal objects to ensure the correct images are displayed for each meal.
+2.  **`blueprint.md` Update**: This file was updated to accurately document the fix and the image URL swap.
