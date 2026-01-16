@@ -18,12 +18,11 @@ This project is a web application that introduces users to Korean culture. It in
 
 ## Current Task
 
-The current task was to update the image URL for "닭갈비 (Dakgalbi)" in the Korean Meal Recommendation service.
+The current task was to swap the image URLs for "떡볶이 (Tteokbokki)" and "부대찌개 (Budae-jjigae)".
 
 ### Steps Taken
 
 1.  **`meals.js` Update**:
-    *   Updated the `imageUrl` property for the "닭갈비 (Dakgalbi)" meal object with the new URL provided by the user.
-2.  **Korean Meal Recommendation (Previous Task)**:
-    *   Added images to the Korean Meal Recommendation service.
-3.  **`blueprint.md` Update**: This file was updated to document the specific image URL change.
+    *   Added the "부대찌개 (Budae-jjigae)" meal entry with its details.
+    *   Swapped the `imageUrl` properties between the "떡볶이 (Tteokbokki)" and "부대찌개 (Budae-jjigae)" meal objects.
+2.  **`blueprint.md` Update**: This file was updated to document the specific image URL swap and the addition of the "부대찌개 (Budae-jjigae)" meal.

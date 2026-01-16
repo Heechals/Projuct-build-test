@@ -85,6 +85,12 @@ const meals = [
         recommendation_criteria: { season: ['Autumn', 'Winter'], weather: ['Cold'], day: ['Friday', 'Saturday'] }
     },
     {
+        imageUrl: "https://lh3.google.com/u/0/d/1j_ioPyYIZVZILiJCLOfDYmuvojDwVlz5=w403-h894-iv1?auditContext=prefetch",
+        recipe: ["Sauté kimchi in a pot.", "Add sliced spam, sausages, baked beans, tofu, and various vegetables.", "Pour in broth (often anchovy or beef-based) and bring to a boil.", "Add ramen noodles and simmer until cooked."],
+        tips: "Perfect for sharing with friends on a cold day. Don't forget a bowl of rice!",
+        recommendation_criteria: { season: ['Autumn', 'Winter'], weather: ['Cold', 'Rainy'], day: [] }
+    },
+    {
         name: "된장찌개 (Doenjang-jjigae - Soybean Paste Stew)",
         description: "A hearty, savory stew made with Korean soybean paste (doenjang). A daily staple in Korean cuisine.",
         imageUrl: "https://lh3.google.com/u/0/d/1D9cJG2ZgyaVejGDyy9-6qPSTDqeZWhP5=w403-h894-iv1?auditContext=prefetch",
@@ -95,7 +101,7 @@ const meals = [
     {
         name: "떡볶이 (Tteokbokki - Spicy Rice Cakes)",
         description: "One of Korea's most famous street foods. Chewy rice cakes and fish cakes simmered in a sweet and spicy gochujang-based sauce.",
-        imageUrl: "https://lh3.google.com/u/0/d/1j_ioPyYIZVZILiJCLOfDYmuvojDwVlz5=w403-h894-iv1?auditContext=prefetch",
+        imageUrl: "https://lh3.google.com/u/0/d/1IuJEPoe8S0FX0wGkw7AB9W3zdoT8lck_=w403-h894-iv1?auditContext=prefetch",
         recipe: ["Boil rice cakes (tteok) to soften them.", "In a pan, mix gochujang, sugar, and water to create a sauce.", "Add the rice cakes and fish cakes, and simmer until the sauce thickens."],
         tips: "Add a boiled egg or some ramen noodles to make it even more filling. Cheese tteokbokki is also a very popular variation!",
         recommendation_criteria: { season: [], weather: ['Cold', 'Rainy'], day: [] }
