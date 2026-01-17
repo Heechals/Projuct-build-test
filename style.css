@@ -125,21 +125,22 @@ header nav a:hover {
 .cta-button {
     display: inline-block;
     background-color: transparent;
-    color: white; /* Text color matching hero text */
-    padding: 12px 25px;
+    color: rgba(255, 255, 255, 0.7); /* Lighter white text */
+    padding: 10px 20px; /* Slightly smaller padding */
     margin-top: 20px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 50px; /* Still rounded */
-    border: 2px solid rgba(255, 255, 255, 0.7); /* Subtle white border */
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Very subtle white border */
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    box-shadow: none; /* No glow */
+    box-shadow: none;
+    font-size: 0.9rem; /* Slightly smaller font */
 }
 
 .cta-button:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Slight white fill on hover */
-    border-color: white;
-    color: white; /* Keep text white */
+    background-color: rgba(255, 255, 255, 0.05); /* Very slight white fill on hover */
+    border-color: rgba(255, 255, 255, 0.7); /* Border becomes more defined */
+    color: white; /* Text becomes pure white */
 }
 
 /* Main Content */
