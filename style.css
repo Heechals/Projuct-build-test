@@ -472,3 +472,36 @@ footer {
     margin: 1.5rem auto; /* Center it and give some vertical margin */
     box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
+
+/* Contact Form */
+.contact-form {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(10, 36, 99, 0.2);
+}

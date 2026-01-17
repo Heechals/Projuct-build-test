@@ -11,27 +11,48 @@
         <div class="logo"><a href="index.html">Learn Korean Culture</a></div>
         <nav>
             <ul>
-                <li><a href="index.html#k-food">K-Food</a></li>
-                <li><a href="index.html#virtual-tours">Virtual Tours</a></li>
-                <li><a href="index.html#hangeul">Hangeul</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tests.html">Popular Tests</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main class="detail-page">
         <section class="content-section">
-            <h2>Contact Us</h2>
+            <h2>Partner with Us!</h2>
             <p>
-                Have questions or suggestions? We'd love to hear from you!
+                Interested in collaboration or have an inquiry? Fill out the form below, and we'll get back to you as soon as possible.
             </p>
-            <p>
-                Please feel free to reach out to us at: <a href="mailto:contact@learnkoreanculture.com">contact@learnkoreanculture.com</a>
-            </p>
+
+            <form action="https://formspree.io/f/xgoooyyk" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="_replyto" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="test-btn">Send Inquiry</button>
+            </form>
         </section>
     </main>
 
     <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
         <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
     </footer>
+    
+    <script src="main.js"></script>
 </body>
 </html>
