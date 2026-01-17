@@ -460,3 +460,12 @@ footer {
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
+
+.hangeul-image {
+    display: block; /* To center the image using margin auto */
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 1.5rem auto; /* Center it and give some vertical margin */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
