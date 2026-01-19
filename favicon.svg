@@ -1,5 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <path d="M20,30 Q50,10 80,30 L90,70 Q50,90 10,70 Z" fill="#E8A2AA" />
-  <path d="M20,30 Q50,50 80,30" fill="none" stroke="#D37E8A" stroke-width="5" />
-  <circle cx="50" cy="25" r="5" fill="#F0C869" />
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="white"/>
+  <g transform="translate(50,50)">
+    <!-- Main red shape -->
+    <path d="M0-45 L20-20 L45 0 L20 20 L0 45 L-20 20 L-45 0 L-20 -20 Z" fill="#CD2E3A"/>
+    <!-- Inner green shape -->
+    <path d="M0-35 L15-15 L35 0 L15 15 L0 35 L-15 15 L-35 0 L-15 -15 Z" fill="#2F8C56"/>
+    <!-- Innermost blue shape -->
+    <path d="M0-25 L10-10 L25 0 L10 10 L0 25 L-10 10 L-25 0 L-10 -10 Z" fill="#0047A0"/>
+    <!-- Center yellow dot -->
+    <circle cx="0" cy="0" r="8" fill="#FBBF24"/>
+  </g>
 </svg>
