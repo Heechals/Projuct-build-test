@@ -1,0 +1,7 @@
+# Allow all crawlers
+User-agent: *
+Disallow: /admin.html
+Disallow: /admin-login.html
+
+# Sitemap
+Sitemap: https://<YOUR_DOMAIN>/sitemap.xml
