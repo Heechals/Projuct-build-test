@@ -1,63 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 
-    Please replace https://<YOUR_DOMAIN> with your actual domain name.
-    For dynamic pages like recipe-detail.html, you should programmatically
-    generate a <url> entry for each individual recipe page.
-    For example:
-    <url>
-      <loc>https://<YOUR_DOMAIN>/recipe-detail.html?id=kimchi-jjigae</loc>
-      <lastmod>2026-01-20</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-    </url>
-  -->
   <url>
-    <loc>https://<YOUR_DOMAIN>/index.html</loc>
+    <loc>https://oeo525.site/index.html</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://<YOUR_DOMAIN>/about.html</loc>
+    <loc>https://oeo525.site/about.html</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://<YOUR_DOMAIN>/contact.html</loc>
+    <loc>https://oeo525.site/contact.html</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://<YOUR_DOMAIN>/privacy.html</loc>
+    <loc>https://oeo525.site/privacy.html</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://<YOUR_DOMAIN>/learn-hangeul.html</loc>
+    <loc>https://oeo525.site/learn-hangeul.html</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://<YOUR_DOMAIN>/gyeongbokgung-palace.html</loc>
+    <loc>https://oeo525.site/gyeongbokgung-palace.html</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://<YOUR_DOMAIN>/haeundae-beach.html</loc>
+    <loc>https://oeo525.site/haeundae-beach.html</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://<YOUR_DOMAIN>/recipes.html</loc>
+    <loc>https://oeo525.site/recipes.html</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://oeo525.site/virtual-tours.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
