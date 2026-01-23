@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Find out your preference in the ultimate showdown: Teto vs. Egen. Participate in the test to see which side you are on.">
-    <title>Teto vs Egen Test - Learn Korean Culture</title>
+    <meta name="description" content="Find out your Teto-Egen personality type. Participate in the test to see which side you are on.">
+    <title>Teto vs Egen Personality Test - Learn Korean Culture</title>
     <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
     <link rel="shortcut icon" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .test-question { margin-bottom: 1rem; }
+        .test-question label { display: block; margin-left: 0.5rem; }
+        .gender-selection { margin-bottom: 2rem; text-align: center; }
+        #result-container h3 { margin-top: 2rem; }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VP1RM8PZ3G"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-VP1RM8PZ3G');
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js?adsbygoogle.js?client=ca-pub-3938407493063499"
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938407493063499"
      crossorigin="anonymous"></script>
 </head>
 <body>
@@ -35,17 +40,67 @@
     <main class="detail-page">
         <section class="content-section">
             <h2>Teto vs Egen Test</h2>
-            <p>
-                The ultimate showdown. Which side are you on?
-            </p>
+            <p>The ultimate showdown. Which side are you on?</p>
         </section>
 
         <section class="test-container">
-            <div class="upload-area">
-                <p>Prepare for the Teto vs Egen challenge!</p>
+            <div class="gender-selection">
+                <h3>Select Your Gender:</h3>
+                <input type="radio" id="gender-male" name="gender" value="male">
+                <label for="gender-male">Male</label>
+                <input type="radio" id="gender-female" name="gender" value="female">
+                <label for="gender-female">Female</label>
             </div>
-            <button id="start-btn" class="test-btn">Start Test</button>
+            
+            <div id="question-container">
+                <!-- Questions will be loaded here by JavaScript -->
+            </div>
+
+            <button id="result-btn" class="test-btn" style="display: none;">Show Result</button>
             <div id="result-container" style="margin-top: 2rem;"></div>
+        </section>
+        
+        <section class="content-section">
+            <h2>About Teto-Egen Personality Types</h2>
+            
+            <article>
+                <h3>1. Overview</h3>
+                <p>The Teto-Egen personality type is an internet meme that categorizes human romance and personality types. The words 'Teto' and 'Egen' are shortened from Testosterone (male hormone) and Estrogen (female hormone), and personality types are judged based on characteristics associated with these sex hormones. It is a personality type based on pseudoscience, similar to MBTI or blood type personality theories.</p>
+                
+                <h3>2. Origin</h3>
+                <p>This neologism is presumed to have originated from a post titled "Lee Sang-soo's Love Food Chain Analysis" on the Naver blog 'Suseong Diary' on June 2, 2021, first proposed by diet content creator Lee Sang-soo. Later, on March 21, 2024, Instagram comic artist 'Naejjo' reconstructed the concept of 'Tetonam' in a webtoon format based on this personality type and posted it on Instagram. After that, it spread by word of mouth, and in mid-2025, the terms 'Tetonam' and 'Egennyeo' began to trend significantly.</p>
+                
+                <h3>3. Key Concepts</h3>
+                <h4>3.1. The Circular Structure of the Love Food Chain</h4>
+                <p>According to Lee Sang-soo's love food chain, the interaction between testosterone and estrogen types is not a fixed 1:1 match but occurs within a cyclical structure. Each type is naturally drawn to a partner who can complement their deficient tendencies, and this connection circulates in a food-chain-like loop rather than a straight line. According to Lee Sang-soo, the higher up in the chain, the higher the social class is evaluated.</p>
+                <p>The basic flow is as follows:</p>
+                <p>Egen-nyeo → Egen-nam → Teto-nyeo → Teto-nam → Egen-nyeo</p>
+                <ul>
+                    <li>Egen-nyeo tends to be attracted to Egen-nam, who understands her sensitivity and emotions well. Conversely, Egen-nyeo may feel emotionally overwhelmed or burdened by Teto-nam's strong 'yang' energy and direct attitude, creating distance.</li>
+                    <li>Egen-nam is attracted to Teto-nyeo, who possesses the drive and energy he lacks. Conversely, in a relationship with Egen-nyeo, where delicate and sensitive emotional lines overlap, Egen-nam may feel fatigued or experience a kind of same-group aversion.</li>
+                    <li>Teto-nyeo is naturally attracted to Teto-nam, who has stronger 'yang' energy and masculine charm than her. Conversely, Egen-nam may be found lacking in masculinity or initiative, which often clashes with the relationship code Teto-nyeo seeks.</li>
+                    <li>Teto-nam is attracted to Egen-nyeo, who has the soft femininity and delicate sensitivity he lacks. While he may also be attracted to Teto-nyeo in terms of appearance or vitality, conflicts are frequent as both have strong 'yang' tendencies, leading to clashes over dominance.</li>
+                </ul>
+
+                <h4>3.2. Teto-nam (Testosterone Male)</h4>
+                <p>A Teto-nam (Alpha male, Masculine man) is a man who, regardless of biological figures, exhibits strong leadership, drive, and a straightforward tendency in his social and behavioral traits, possessing traditional ideal masculinity.</p>
+                <h5>Personality Traits</h5>
+                <ul>
+                    <li>Strong aggression and hunting instinct.</li>
+                    <li>Assertive and has leadership qualities.</li>
+                    <li>Emotionally masculine in a rough rather than sensitive way.</li>
+                    <li>Not interested in external things (social status, honor, etc.).</li>
+                    <li>Dislikes analyzing and judging, is improvisation-oriented.</li>
+                    <li>Prefers momentary feelings over abstract ideologies.</li>
+                    <li>Simple, and pushes through with what has been decided.</li>
+                    <li>Loves challenges and adventures.</li>
+                    <li>Often has little interest in fashion, perfumes, etc.</li>
+                    <li>Many are somewhat insensitive to trends compared to Egen-nam.</li>
+                    <li>Prefers simple and classic fashion over excessive grooming (e.g., basic t-shirts, polo shirts, metal watches).</li>
+                    <li>Sleeps well in unfamiliar places and is highly adaptable.</li>
+                    <li>Has a visceral aversion to existences he finds uncomfortable, such as gay people.</li>
+                </ul>
+            </article>
         </section>
     </main>
 
@@ -58,6 +113,7 @@
         <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
     </footer>
     
+    <script src="teto-egen-test.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
