@@ -4,4 +4,4 @@ Disallow: /admin.html
 Disallow: /admin-login.html
 
 # Sitemap
-Sitemap: https://<YOUR_DOMAIN>/sitemap.xml
+Sitemap: https://oeo525.site/sitemap.xml
