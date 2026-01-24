@@ -8,6 +8,16 @@
     <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
     <link rel="shortcut icon" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .mbti-question { margin-bottom: 1.5rem; border: 1px solid #ddd; padding: 1rem; border-radius: 8px; }
+        .mbti-question p { font-weight: bold; margin-bottom: 0.8rem; }
+        .mbti-question label { display: block; margin-bottom: 0.5rem; cursor: pointer; padding: 0.5rem; border: 1px solid #eee; border-radius: 4px; transition: background-color 0.2s; }
+        .mbti-question label:hover { background-color: #f9f9f9; }
+        .mbti-question input[type="radio"] { margin-right: 0.5rem; }
+        #mbti-result-btn { margin-top: 2rem; }
+        #mbti-result-container h3 { margin-top: 2rem; font-size: 1.8rem; color: var(--primary-color); }
+        #mbti-result-container p { font-size: 1.1rem; line-height: 1.6; }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VP1RM8PZ3G"></script>
     <script>
@@ -34,15 +44,56 @@
     <main class="detail-page">
         <div class="recipe-title-header" style="background-image: url('https://lh3.google.com/u/0/d/18t-y_ECJz6K4p7-w8oVD2oFhiMISGUhW=w1365-h911-iv1?auditContext=prefetch');">
             <h1>MBTI Personality Test</h1>
+        <!-- AdSense Ad Unit -->
+        <div class="adsense-ad-container" style="text-align:center; margin: 1rem 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3938407493063499"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
+        </div>
+        
         <section class="content-section">
-            <h2>What is your MBTI?</h2>
+            <h2>MBTI Personality Test</h2>
             <p>Discover your personality type and understand yourself better.</p>
         </section>
 
         <section class="test-container">
-            <!-- MBTI test questions and logic will be implemented here -->
-            <p>MBTI Test Coming Soon!</p>
+            <div id="mbti-question-container">
+                <!-- MBTI questions will be loaded here by JavaScript -->
+            </div>
+            <button id="mbti-result-btn" class="test-btn" style="display: none;">Show Result</button>
+            <div id="mbti-result-container" style="margin-top: 2rem;"></div>
+        </section>
+
+        <section class="content-section">
+            <h2>About MBTI Personality Types</h2>
+            <article>
+                <h3>1. Overview</h3>
+                <p>The Myers-Briggs Type Indicator (MBTI) is a self-report questionnaire designed to indicate different psychological preferences in how people perceive the world and make decisions. Developed by Katharine C. Briggs and Isabel B. Myers based on Carl Jung's early analytical psychology model, it categorizes personalities into 16 types. Despite its popularity, the MBTI has been criticized by scientists as pseudoscience, lacking statistically significant double-blind tests to prove its effectiveness. Scientific American has called it "one of the worst personality tests out there." Its strength lies in its easy, short, and fun way of categorizing personalities, making it a popular "must-have" item for social interactions. However, this clear categorization is also a fatal limitation. Repeating the test can even change a person's type, indicating a lack of reliability in its psychological assessment.</p>
+
+                <h3>2. Personality Type Preference Indicators</h3>
+                <p>MBTI reveals an individual's preference for four pairs of dichotomies: Extraversion (E) vs. Introversion (I), Sensing (S) vs. Intuition (N), Thinking (T) vs. Feeling (F), and Judging (J) vs. Perceiving (P). This results in 16 possible personality types.</p>
+                <div style="text-align: center; margin: 1rem 0;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/MBTI_Types_by_Temperament.svg/640px-MBTI_Types_by_Temperament.svg.png" alt="MBTI 16 Types" style="max-width: 100%; height: auto;">
+                </div>
+                
+                <h4>2.1. Dichotomies Explained</h4>
+                <ul>
+                    <li><strong>E (Extraversion) | I (Introversion) - Focus of Attention:</strong> Extraverts focus on the external world and gain energy from interactions, while Introverts focus internally and gain energy from solitude.</li>
+                    <li><strong>S (Sensing) | N (Intuition) - Information Perception:</strong> Sensors rely on their five senses and past experiences, focusing on reality. Intuitives rely on intuition and inspiration, focusing on ideas and future possibilities.</li>
+                    <li><strong>T (Thinking) | F (Feeling) - Decision Making:</strong> Thinkers make decisions based on truth, facts, logic, and objective analysis. Feelers make decisions considering relationships, values, and emotional impact.</li>
+                    <li><strong>J (Judging) | P (Perceiving) - Lifestyle Preference:</strong> Judgers prefer a planned, organized, and decisive lifestyle. Perceivers prefer a flexible, spontaneous, and adaptive lifestyle, keeping options open.</li>
+                </ul>
+                <p>It's important to note that everyone possesses elements of all eight traits. MBTI aims to identify which preference is stronger for an individual, not to suggest the absence of other traits. Thus, MBTI results indicate tendencies rather than absolute classifications.</p>
+
+                <h3>3. Criticisms and Limitations</h3>
+                <p>While popular, MBTI faces significant criticism. Its developers were not academic psychologists, and scientific studies have consistently shown a lack of statistical validity, reliability, and independence of its scales. It's considered pseudoscience by many experts, with its widespread adoption largely attributed to its ease of understanding and social utility (e.g., as an "icebreaker"). The tendency for results to change upon retesting undermines its reliability, making it unsuitable for serious psychological assessment. For accurate personality assessment, comprehensive psychological evaluations are recommended over MBTI.</p>
+                <p>The oversimplification of human personality into just 16 types is a major limitation. People are multifaceted, and experiencing mixed tendencies (e.g., feeling both Introverted and Extraverted) is natural. Furthermore, the commercialization of MBTI has led to overgeneralizations and misinterpretations in popular culture, often reducing complex human behaviors to stereotypes. It is best enjoyed as a meme or a tool for lighthearted self-reflection rather than a definitive scientific classification.</p>
+            </article>
         </section>
     </main>
 
@@ -55,6 +106,7 @@
         <p>&copy; 2026 Learn Korean Culture. All rights reserved.</p>
     </footer>
     
+    <script src="mbti.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
